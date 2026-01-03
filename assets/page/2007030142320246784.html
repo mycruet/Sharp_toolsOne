@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>应用名称</title> 
+  <script src="../javascript/reload.js"></script> 
+  <script src="./2007030142320246784/resource_6669410000.js"></script> 
+  <link href="./2007030142320246784/all.min.css" rel="stylesheet"> 
+ </head> 
+ <body class="bg-gray-50 min-h-screen"> 
+  <!-- [MODULE] abc_主内容区域 --> 
+  <div class="flex flex-col h-screen"> 
+   <!-- [MODULE] d23_顶部导航栏 --> 
+   <header class="bg-white shadow-md"> 
+    <div class="container mx-auto px-4"> 
+     <div class="flex items-center justify-between h-16"> 
+      <!-- [MODULE] 33f_顶部导航栏:Logo和标题区域 --> 
+      <div class="flex items-center space-x-4"> 
+       <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center"> 
+        <i class="fas fa-cube text-white text-xl"> </i> 
+       </div> 
+       <h1 class="text-xl font-bold text-gray-800 yt-editor" contenteditable="false" style="outline: none;"> 数据采集和监控 </h1> 
+       <span class="text-gray-500"> | </span> 
+       <a class="yt-a-defalut-link" target="_top" is-page="true" href="javascript:void(0);" custom-href="w=1920&amp;h=1080&amp;appuuid=2007032279200694272&amp;version=24&amp;pageType=web&amp;uuid=2006600210901368832&amp;appName=赋能平台（Pro）副本" onclick="ytCustomLinkNavigation()" custom-a="true" is-add="true" style="display: inline; padding: 0px; border: 0px; box-shadow: none;"> <span class="text-gray-600 yt-editor" data-selectorname="#id-uclos" style> 工作台 </span> </a> 
+      </div> 
+      <!-- [/MODULE] 33f_顶部导航栏:Logo和标题区域 -- 包含应用Logo、应用名称和"工作台"文字 --> 
+      <!-- [MODULE] 45g_顶部导航栏:水平菜单栏 --> 
+      <nav class="flex items-center space-x-1"> 
+       <button class="menu-item px-4 py-2 text-sm font-medium rounded-md bg-blue-600 text-white yt-editor" data-menu="menu1" contenteditable="false" style="outline: none;"> 看板 </button> 
+       <a class="yt-a-defalut-link" target="_top" is-page="true" href="javascript:void(0);" custom-href="w=1920&amp;h=1080&amp;appuuid=2007032279200694272&amp;version=1&amp;pageType=web&amp;uuid=2007012264883781632&amp;appName=赋能平台（Pro）副本" onclick="ytCustomLinkNavigation()" custom-a="true" is-add="true" style="display: inline; padding: 0px; border: 0px; box-shadow: none;"> <button class="menu-item px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md yt-editor" data-menu="menu2" contenteditable="false" style="outline: none;" data-selectorname="#id-u248f"> 设备接入 </button> </a> 
+       <a class="yt-a-defalut-link" target="_top" is-page="true" href="javascript:void(0);" custom-href="w=1920&amp;h=1080&amp;appuuid=2007032279200694272&amp;version=2&amp;pageType=web&amp;uuid=2007022186157572096&amp;appName=赋能平台（Pro）副本" onclick="ytCustomLinkNavigation()" custom-a="true" is-add="true" style="display: inline; padding: 0px; border: 0px; box-shadow: none;"> <button class="menu-item px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md yt-editor" data-menu="menu3" contenteditable="false" style="outline: none;" data-selectorname="#id-jnnwl"> 设备监控 </button> </a> 
+       <a class="yt-a-defalut-link" target="_top" is-page="true" href="javascript:void(0);" custom-href="w=1920&amp;h=1080&amp;appuuid=2007032279200694272&amp;version=1&amp;pageType=web&amp;uuid=2007014709189935104&amp;appName=赋能平台（Pro）副本" onclick="ytCustomLinkNavigation()" custom-a="true" is-add="true" style="display: inline; padding: 0px; border: 0px; box-shadow: none;"> <button class="menu-item px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-md yt-editor" data-menu="menu4" contenteditable="false" style="outline: none;" data-selectorname="#id-ct8xp"> 数据服务 </button> </a> 
+      </nav> 
+      <!-- [/MODULE] 45g_顶部导航栏:水平菜单栏 -- 包含8个菜单按钮，点击可切换选中状态 --> 
+     </div> 
+    </div> 
+   </header> 
+   <!-- [/MODULE] d23_顶部导航栏 -- 包含Logo、标题、工作台和水平菜单栏 --> 
+   <!-- [MODULE] 78j_菜单内容区域 --> 
+   <main class="flex-1 container mx-auto px-4 py-8"> 
+    <div id="menu-content" class="text-2xl font-semibold text-gray-800">
+      菜单1 
+    </div> 
+   </main> 
+   <!-- [/MODULE] 78j_菜单内容区域 -- 显示当前选中的菜单名称 --> 
+  </div> 
+  <!-- [/MODULE] abc_主内容区域 -- 包含顶部导航栏和菜单内容区域 --> 
+  <!-- [JSMOD] eft_菜单切换功能 --> 
+  <script id="menu-toggle-script">document.addEventListener('DOMContentLoaded', function () {
+  // 获取所有菜单按钮和内容区域
+  var menuItems = document.querySelectorAll('.menu-item');
+  var menuContent = document.getElementById('menu-content');
+
+  // 为每个菜单按钮添加点击事件
+  menuItems.forEach(function (item) {
+    item.addEventListener('click', function () {
+      // 移除所有按钮的选中状态
+      menuItems.forEach(function (btn) {
+        btn.classList.remove('bg-blue-600', 'text-white');
+        btn.classList.add('text-gray-700', 'hover:bg-gray-100');
+      });
+
+      // 设置当前按钮为选中状态
+      this.classList.remove('text-gray-700', 'hover:bg-gray-100');
+      this.classList.add('bg-blue-600', 'text-white');
+
+      // 更新内容区域显示当前菜单名称
+      var menuName = this.textContent.trim();
+      menuContent.textContent = menuName;
+    });
+  });
+});</script> 
+  <!-- [/JSMOD] eft_菜单切换功能 -- 实现菜单按钮的点击切换效果，更新选中状态并在内容区域显示当前菜单名称 -->  
+ </body>
+</html>

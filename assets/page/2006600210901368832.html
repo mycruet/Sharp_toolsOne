@@ -1,0 +1,2421 @@
+<!doctype html>
+<html lang="zh-CN">
+ <head> 
+  <meta charset="utf-8"> 
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"> 
+  <title>物联数智化赋能平台</title> 
+  <script src="../javascript/reload.js"></script> 
+  <script src="./2006600210901368832/resource_5329310000.js"></script> 
+  <link href="./2006600210901368832/all.min.css" rel="stylesheet"> 
+  <script src="./2006600210901368832/echarts.min.js"></script> 
+  <script>tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#165DFF',
+        secondary: '#6B7280',
+        success: '#00B42A',
+        warning: '#FF7D00',
+        danger: '#F53F3F',
+        info: '#86909C',
+        light: '#F2F3F5',
+        dark: '#1D2129',
+        'primary-light': '#E8F3FF',
+        'primary-dark': '#0E42D2'
+      },
+      spacing: {
+        '5.5': '1.375rem',
+        '18': '4.5rem'
+      },
+      fontFamily: {
+        inter: ['Inter', 'sans-serif']
+      },
+      boxShadow: {
+        'dropdown': '0 4px 16px rgba(0, 0, 0, 0.08)',
+        'panel': '0 2px 14px rgba(0, 0, 0, 0.06)'
+      }
+    }
+  }
+};</script> 
+  <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .transition-height {
+                transition: max-height 0.3s ease-in-out;
+            }
+            .transition-transform {
+                transition: transform 0.3s ease-in-out;
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+    </style> 
+ </head> 
+ <body class="bg-gray-50 font-inter text-dark min-h-screen flex flex-col"> 
+  <!-- [MODULE] a1b_顶部导航栏 --> 
+  <header class="bg-white shadow-sm sticky top-0 z-50"> 
+   <div class="container mx-auto px-4"> 
+    <div class="flex items-center justify-between h-16"> 
+     <!-- [MODULE] c3d_顶部导航栏:Logo和标题 --> 
+     <div class="flex items-center space-x-4"> 
+      <div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center"> 
+       <i class="fas fa-connectdevelop text-white text-xl"> </i> 
+      </div> 
+      <h1 class="text-xl font-semibold text-dark hidden sm:block"> 物联数智化赋能 </h1> 
+     </div> 
+     <!-- [/MODULE] c3d_顶部导航栏:Logo和标题 -- 包含应用logo和标题"物联数智化赋能" --> 
+     <!-- [MODULE] e5f_顶部导航栏:水平菜单栏 --> 
+     <nav class="hidden md:flex items-center space-x-1"> 
+      <a class="menu-item px-4 py-2 text-sm font-medium rounded-md hover:bg-primary-light hover:text-primary transition-colors duration-200 flex items-center" data-target="workbench" href="javascript:void(0);"> <i class="fas fa-desktop mr-2"> </i> 工作台 </a> 
+      <a class="menu-item px-4 py-2 text-sm font-medium rounded-md hover:bg-primary-light hover:text-primary transition-colors duration-200 flex items-center" data-target="enterprise-management" href="javascript:void(0);" target="_top" is-page="true" is-add="false" custom-href="w=1920&amp;h=1080&amp;appuuid=2007032279200694272&amp;version=2&amp;pageType=web&amp;uuid=2006726964575993856&amp;appName=赋能平台（Pro）副本" onclick="ytCustomLinkNavigation()"> <i class="fas fa-building mr-2"> </i> 企业管理 </a> 
+      <a class="menu-item px-4 py-2 text-sm font-medium rounded-md hover:bg-primary-light hover:text-primary transition-colors duration-200 flex items-center" data-target="system-management" href="javascript:void(0);" target="_top" is-page="true" is-add="false" custom-href="w=1920&amp;h=1080&amp;appuuid=2007032279200694272&amp;version=3&amp;pageType=web&amp;uuid=2006370327763877888&amp;appName=赋能平台（Pro）副本" onclick="ytCustomLinkNavigation()"> <i class="fas fa-cog mr-2"> </i> 系统管理 </a> 
+     </nav> 
+     <!-- [/MODULE] e5f_顶部导航栏:水平菜单栏 -- 包含4个菜单按钮：工作台、应用管理、企业管理、系统管理，点击后显示对应内容 --> 
+     <!-- [MODULE] g7h_顶部导航栏:用户头像 --> 
+     <div class="relative"> 
+      <button class="flex items-center space-x-2 focus:outline-none" id="user-menu-button"> <img alt="用户头像" class="w-8 h-8 rounded-full object-cover border-2 border-gray-100" src="./2006600210901368832/eba1beac3c08363a84fe0256922605c7.png"> <span class="text-sm font-medium hidden sm:block"> 管理员 </span> <i class="fas fa-chevron-down text-xs text-gray-400 hidden sm:block"> </i> </button> 
+      <!-- 用户下拉菜单 --> 
+      <div class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-dropdown py-1 z-50 hidden transition-all duration-200 transform origin-top-right scale-95 opacity-0" id="user-dropdown"> 
+       <button class="w-full text-left px-4 py-2 text-sm flex items-center hover:bg-gray-50 transition-colors duration-150" id="account-info-button"> <i class="fas fa-user-circle mr-2 text-gray-400"> </i> 账号信息 </button> 
+       <div class="border-t border-gray-100 my-1"> 
+       </div> 
+       <a class="yt-a-defalut-link" target="_top" is-page="true" href="javascript:void(0);" custom-href="w=1920&amp;h=1080&amp;appuuid=2007032279200694272&amp;version=1&amp;pageType=web&amp;uuid=2000008342541434880&amp;appName=赋能平台（Pro）副本" onclick="ytCustomLinkNavigation()" custom-a="true" is-add="true" style="display: inline; padding: 0px; border: 0px; box-shadow: none;"> <button class="w-full text-left px-4 py-2 text-sm flex items-center hover:bg-gray-50 transition-colors duration-150 text-danger yt-editor" id="logout-button" data-selectorname="#logout-button" style> <i class="fas fa-sign-out-alt mr-2 text-danger"> </i> 登出 </button> </a> 
+      </div> 
+     </div> 
+     <!-- [/MODULE] g7h_顶部导航栏:用户头像 -- 包含用户头像和下拉菜单按钮，点击头像弹出下拉框，包含账号信息和登出两个按钮 --> 
+    </div> 
+   </div> 
+  </header> 
+  <!-- [/MODULE] a1b_顶部导航栏 -- 包含Logo、标题、水平菜单栏和用户头像 --> 
+  <!-- [MODULE] i9j_主内容区域 --> 
+  <main class="flex-grow container mx-auto px-4 py-6"> 
+   <!-- [MODULE] k0l_工作台页面 --> 
+   <div class="content-section" id="workbench"> 
+    <div class="flex min-h-[calc(100vh-12rem)]"> 
+     <!-- [MODULE] 78d_工作台页面:左侧垂直菜单 --> 
+     <div class="w-64 bg-white rounded-l-xl shadow-panel border-r border-gray-100"> 
+      <div class="py-4"> 
+       <a class="workbench-menu-item block px-4 py-3 text-sm font-medium rounded-md hover:bg-primary-light hover:text-primary transition-colors duration-200 flex items-center" data-target="my-messages" href="javascript:void(0);"> <i class="fas fa-envelope mr-3"> </i> 我的消息 <span class="ml-auto bg-danger text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="unread-count"> 3 </span> </a> 
+       <a class="workbench-menu-item block px-4 py-3 text-sm font-medium rounded-md hover:bg-primary-light hover:text-primary transition-colors duration-200 flex items-center" data-target="my-tasks" href="javascript:void(0);"> <i class="fas fa-clipboard-check mr-3"> </i> 我的待办 <span class="ml-auto bg-warning text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="pending-tasks-count"> 5 </span> </a> 
+       <a class="workbench-menu-item block px-4 py-3 text-sm font-medium rounded-md hover:bg-primary-light hover:text-primary transition-colors duration-200 flex items-center" data-target="my-initiatives" href="javascript:void(0);"> <i class="fas fa-rocket mr-3"> </i> 我的发起 <span class="ml-auto bg-warning text-white text-xs rounded-full w-5 h-5 flex items-center justify-center" id="in-progress-count"> 3 </span> </a> 
+       <a class="workbench-menu-item block px-4 py-3 text-sm font-medium rounded-md hover:bg-primary-light hover:text-primary transition-colors duration-200 flex items-center yt-editor" data-target="my-business" href="javascript:void(0);" contenteditable="false" style="outline: none;"> <i class="fas fa-briefcase mr-3"> </i> 我的应用 </a> 
+      </div> 
+     </div> 
+     <!-- [/MODULE] 78d_工作台页面:左侧垂直菜单 -- 包含5个菜单项：我的消息、我的待办、我的发起、我的看板、我的应用，点击后显示对应内容 --> 
+     <!-- [MODULE] 92e_工作台页面:右侧内容区域 --> 
+     <div class="flex-1 bg-white rounded-r-xl shadow-panel p-6"> 
+      <!-- [MODULE] 23f_工作台页面:我的消息内容 --> 
+      <div class="workbench-content" id="my-messages"> 
+       <div class="mb-6"> 
+        <h2 class="text-xl font-semibold text-gray-800 mb-4"> 我的消息 </h2> 
+        <!-- 筛选区域 --> 
+        <div class="bg-gray-50 p-4 rounded-lg mb-6"> 
+         <div class="grid grid-cols-1 md:grid-cols-3 gap-4"> 
+          <div> 
+           <label class="block text-xs text-gray-500 mb-1"> 标题搜索 </label> 
+           <div class="relative"> 
+            <input class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm" id="message-title-search" placeholder="输入标题关键词" type="text"> 
+            <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"> </i> 
+           </div> 
+          </div> 
+          <div> 
+           <label class="block text-xs text-gray-500 mb-1"> 消息来源 </label> 
+           <div class="relative"> 
+            <input class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm" id="message-source-search" placeholder="输入来源关键词" type="text"> 
+            <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"> </i> 
+           </div> 
+          </div> 
+          <div> 
+           <label class="block text-xs text-gray-500 mb-1"> 接收时间 </label> 
+           <div class="grid grid-cols-2 gap-2"> 
+            <input class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm" id="start-date" type="date"> 
+            <input class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm" id="end-date" type="date"> 
+           </div> 
+          </div> 
+          <div> 
+           <label class="block text-xs text-gray-500 mb-1"> 状态筛选 </label> 
+           <select class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm" id="status-filter"> <option value="all"> 全部状态 </option> <option value="unread"> 未读 </option> <option value="read"> 已读 </option> </select> 
+          </div> 
+         </div> 
+         <div class="mt-3 flex justify-end"> 
+          <button class="px-3 py-1 text-xs border border-gray-300 rounded-md mr-2 hover:bg-gray-50" id="reset-filter"> 重置 </button> 
+          <button class="px-3 py-1 text-xs bg-primary text-white rounded-md hover:bg-primary-dark" id="apply-filter"> 筛选 </button> 
+         </div> 
+        </div> 
+        <!-- 操作栏 --> 
+        <div class="flex justify-between items-center mb-4"> 
+         <div class="flex items-center"> 
+          <input class="mr-2" id="select-all-messages" type="checkbox"> 
+          <label class="text-sm text-gray-700" for="select-all-messages"> 全选 </label> 
+          <button class="ml-4 px-3 py-1 text-xs border border-primary text-primary rounded-md hover:bg-primary-light" id="mark-as-read"> 标记已读 </button> 
+         </div> 
+         <div class="text-sm text-gray-500">
+           共 
+          <span id="total-messages"> 12 </span> 条消息 
+         </div> 
+        </div> 
+        <!-- 消息列表 --> 
+        <div class="overflow-x-auto"> 
+         <table class="min-w-full divide-y divide-gray-200"> 
+          <thead> 
+           <tr> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-10"> <input class="rounded text-primary focus:ring-primary" id="select-all-messages" type="checkbox"> </th> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> ID </th> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> 标题 </th> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> 消息来源 </th> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> 接收时间 </th> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> 状态 </th> 
+           </tr> 
+          </thead> 
+          <tbody class="bg-white divide-y divide-gray-200" id="message-list"> 
+           <!-- 消息行将通过JS动态生成 --> 
+          </tbody> 
+         </table> 
+        </div> 
+        <!-- 分页 --> 
+        <div class="flex justify-between items-center mt-6"> 
+         <div class="text-sm text-gray-500">
+           显示 1-10 条，共 12 条消息 
+         </div> 
+         <div class="flex space-x-1"> 
+          <button class="px-3 py-1 border border-gray-300 rounded-md text-sm disabled:opacity-50" disabled> 上一页 </button> 
+          <button class="px-3 py-1 bg-primary text-white rounded-md text-sm"> 1 </button> 
+          <button class="px-3 py-1 border border-gray-300 rounded-md text-sm"> 2 </button> 
+          <button class="px-3 py-1 border border-gray-300 rounded-md text-sm"> 下一页 </button> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <!-- [/MODULE] 23f_工作台页面:我的消息内容 -- 显示消息列表，包含筛选区域、操作栏、消息表格和分页控件 --> 
+      <!-- [MODULE] 45g_工作台页面:我的待办内容 --> 
+      <div class="workbench-content hidden" id="my-tasks"> 
+       <div class="mb-6"> 
+        <h2 class="text-xl font-semibold text-gray-800 mb-4"> 我的待办 </h2> 
+        <!-- 筛选区域 --> 
+        <div class="bg-gray-50 p-4 rounded-lg mb-6"> 
+         <div class="grid grid-cols-1 md:grid-cols-4 gap-4"> 
+          <div> 
+           <label class="block text-xs text-gray-500 mb-1"> 标题搜索 </label> 
+           <div class="relative"> 
+            <input class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm" id="task-title-search" placeholder="输入标题关键词" type="text"> 
+            <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"> </i> 
+           </div> 
+          </div> 
+          <div> 
+           <label class="block text-xs text-gray-500 mb-1"> 任务来源 </label> 
+           <div class="relative"> 
+            <input class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm" id="task-source-search" placeholder="输入任务来源关键词" type="text"> 
+            <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"> </i> 
+           </div> 
+          </div> 
+          <div> 
+           <label class="block text-xs text-gray-500 mb-1"> 接收时间 </label> 
+           <div class="grid grid-cols-2 gap-2"> 
+            <input class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm" id="task-start-date" type="date"> 
+            <input class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm" id="task-end-date" type="date"> 
+           </div> 
+          </div> 
+          <div> 
+           <label class="block text-xs text-gray-500 mb-1"> 紧急程度 </label> 
+           <select class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm" id="task-priority-filter"> <option value="all"> 全部 </option> <option value="high"> 高 </option> <option value="medium"> 中 </option> <option value="low"> 低 </option> </select> 
+          </div> 
+          <div> 
+           <label class="block text-xs text-gray-500 mb-1"> 状态 </label> 
+           <select class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm" id="task-status-filter"> <option value="all"> 全部 </option> <option value="pending"> 待处理 </option> <option value="completed"> 已完成 </option> </select> 
+          </div> 
+         </div> 
+         <div class="mt-3 flex justify-end"> 
+          <button class="px-3 py-1 text-xs border border-gray-300 rounded-md mr-2 hover:bg-gray-50" id="reset-task-filter"> 重置 </button> 
+          <button class="px-3 py-1 text-xs bg-primary text-white rounded-md hover:bg-primary-dark" id="apply-task-filter"> 筛选 </button> 
+         </div> 
+        </div> 
+        <!-- 任务列表 --> 
+        <div class="overflow-x-auto"> 
+         <table class="min-w-full divide-y divide-gray-200"> 
+          <thead> 
+           <tr> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> ID </th> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> 标题 </th> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> 任务来源 </th> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> 接收时间 </th> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> 紧急程度 </th> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> 状态 </th> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> 操作 </th> 
+           </tr> 
+          </thead> 
+          <tbody class="bg-white divide-y divide-gray-200" id="task-list"> 
+           <!-- 任务数据将通过JS动态生成 --> 
+          </tbody> 
+         </table> 
+        </div> 
+        <!-- [JSMOD] 56h_工作台页面:我的待办功能 --> 
+        <script id="my-tasks-script">document.addEventListener('DOMContentLoaded', function () {
+  // 任务数据
+  var tasks = [{
+    id: 'TASK001',
+    title: '系统安全漏洞修复',
+    taskSource: '安全部门',
+    receiveTime: '2023-11-15 09:30:00',
+    priority: 'high',
+    status: 'pending'
+  }, {
+    id: 'TASK002',
+    title: '用户体验优化方案评审',
+    taskSource: '产品部门',
+    receiveTime: '2023-11-14 14:20:00',
+    priority: 'medium',
+    status: 'pending'
+  }, {
+    id: 'TASK003',
+    title: '季度数据报表生成',
+    taskSource: '财务部门',
+    receiveTime: '2023-11-13 10:15:00',
+    priority: 'medium',
+    status: 'completed'
+  }, {
+    id: 'TASK004',
+    title: '新员工系统操作培训',
+    taskSource: '人力资源部门',
+    receiveTime: '2023-11-12 16:45:00',
+    priority: 'low',
+    status: 'pending'
+  }, {
+    id: 'TASK005',
+    title: '服务器负载监控配置',
+    taskSource: '运维部门',
+    receiveTime: '2023-11-11 09:10:00',
+    priority: 'high',
+    status: 'pending'
+  }];
+  // DOM元素
+  var taskList = document.getElementById('task-list');
+  var pendingTasksCount = document.getElementById('pending-tasks-count');
+  var titleSearchInput = document.getElementById('task-title-search');
+  var taskSourceInput = document.getElementById('task-source-search');
+  var startDateInput = document.getElementById('task-start-date');
+  var endDateInput = document.getElementById('task-end-date');
+  var priorityFilterSelect = document.getElementById('task-priority-filter');
+  var statusFilterSelect = document.getElementById('task-status-filter');
+  var resetFilterBtn = document.getElementById('reset-task-filter');
+  var applyFilterBtn = document.getElementById('apply-task-filter');
+  // 渲染任务列表
+  function renderTasks() {
+    var filteredTasks = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : tasks;
+    taskList.innerHTML = '';
+    if (filteredTasks.length === 0) {
+      var emptyRow = document.createElement('tr');
+      emptyRow.innerHTML = '<td colspan="7" class="px-4 py-8 text-center text-gray-500"><i class="fas fa-tasks mb-2 text-2xl"></i><p>没有找到匹配的任务</p></td>';
+      taskList.appendChild(emptyRow);
+      return;
+    }
+    filteredTasks.forEach(function (task) {
+      var row = document.createElement('tr');
+      row.className = 'hover:bg-gray-50 transition-colors duration-150';
+      // 优先级样式
+      var priorityClass = '';
+      var priorityText = '';
+      switch (task.priority) {
+        case 'high':
+          priorityClass = 'bg-red-100 text-red-800';
+          priorityText = '高';
+          break;
+        case 'medium':
+          priorityClass = 'bg-yellow-100 text-yellow-800';
+          priorityText = '中';
+          break;
+        case 'low':
+          priorityClass = 'bg-green-100 text-green-800';
+          priorityText = '低';
+          break;
+      }
+      // 状态样式
+      var statusClass = '';
+      var statusText = '';
+      switch (task.status) {
+        case 'pending':
+          statusClass = 'bg-orange-100 text-orange-800';
+          statusText = '待处理';
+          break;
+        case 'completed':
+          statusClass = 'bg-green-100 text-green-800';
+          statusText = '已完成';
+          break;
+      }
+      row.innerHTML = "<td class=\"px-4 py-3 whitespace-nowrap text-sm text-gray-900\">".concat(task.id, "</td>\n        <td class=\"px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900\">").concat(task.title, "</td>\n        <td class=\"px-4 py-3 whitespace-nowrap text-sm text-gray-500\">").concat(task.taskSource, "</td>\n        <td class=\"px-4 py-3 whitespace-nowrap text-sm text-gray-500\">").concat(task.receiveTime, "</td>\n        <td class=\"px-4 py-3 whitespace-nowrap\">\n          <span class=\"px-2 py-1 text-xs rounded-full").concat(priorityClass, "\">").concat(priorityText, "</span>\n        </td>\n        <td class=\"px-4 py-3 whitespace-nowrap\">\n          <span class=\"px-2 py-1 text-xs rounded-full").concat(statusClass, "\">").concat(statusText, "</span>\n        </td>\n        <td class=\"px-4 py-3 whitespace-nowrap text-sm\">").concat(task.status === 'pending' ? "<button class=\"text-primary hover:text-primary-dark mr-3 handle-task-btn\" data-id=\"".concat(task.id, "\">\u5904\u7406</button>") : '', "<button class=\"text-gray-500 hover:text-gray-700 view-task-btn\" data-id=\"").concat(task.id, "\">\u67E5\u770B</button>\n        </td>");
+      taskList.appendChild(row);
+    });
+    // 更新待处理任务数量
+    updatePendingTasksCount();
+    // 添加事件监听
+    document.querySelectorAll('.handle-task-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var taskId = this.getAttribute('data-id');
+        handleTask(taskId);
+      });
+    });
+    document.querySelectorAll('.view-task-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var taskId = this.getAttribute('data-id');
+        viewTaskDetails(taskId);
+      });
+    });
+  }
+  // 更新待处理任务数量
+  function updatePendingTasksCount() {
+    var pendingCount = tasks.filter(function (task) {
+      return task.status === 'pending';
+    }).length;
+    pendingTasksCount.textContent = pendingCount;
+    pendingTasksCount.classList.toggle('hidden', pendingCount === 0);
+  }
+  // 处理任务
+  function handleTask(taskId) {
+    var taskIndex = tasks.findIndex(function (task) {
+      return task.id === taskId;
+    });
+    if (taskIndex !== -1) {
+      tasks[taskIndex].status = 'completed';
+      renderTasks();
+      alert('任务已成功处理完成！');
+    }
+  }
+  // 查看任务详情
+  function viewTaskDetails(taskId) {
+    var task = tasks.find(function (task) {
+      return task.id === taskId;
+    });
+    if (task) {
+      alert("\u4EFB\u52A1\u8BE6\u60C5:\nID:".concat(task.id, "\u6807\u9898:").concat(task.title, "\u4EFB\u52A1\u6765\u6E90:").concat(task.taskSource, "\u63A5\u6536\u65F6\u95F4:").concat(task.receiveTime, "\u7D27\u6025\u7A0B\u5EA6:").concat(task.priority === 'high' ? '高' : task.priority === 'medium' ? '中' : '低', "\u72B6\u6001:").concat(task.status === 'pending' ? '待处理' : '已完成'));
+    }
+  }
+  // 应用筛选
+  function applyFilter() {
+    var title = titleSearchInput.value.toLowerCase().trim();
+    var taskSource = taskSourceInput.value.toLowerCase().trim();
+    var startDate = startDateInput.value;
+    var endDate = endDateInput.value;
+    var priority = priorityFilterSelect.value;
+    var status = statusFilterSelect.value;
+    var filteredTasks = tasks.filter(function (task) {
+      // 标题筛选
+      var titleMatch = title === '' || task.title.toLowerCase().includes(title);
+      // 任务来源筛选
+      var sourceMatch = taskSource === '' || task.taskSource.toLowerCase().includes(taskSource);
+      // 日期筛选
+      var taskDate = new Date(task.receiveTime.split("")[0]);
+      var startDateMatch = !startDate || taskDate >= new Date(startDate);
+      var endDateMatch = !endDate || taskDate <= new Date(endDate);
+      // 优先级筛选
+      var priorityMatch = priority === 'all' || task.priority === priority;
+      // 状态筛选
+      var statusMatch = status === 'all' || task.status === status;
+      return titleMatch && sourceMatch && startDateMatch && endDateMatch && priorityMatch && statusMatch;
+    });
+    renderTasks(filteredTasks);
+  }
+  // 重置筛选
+  function resetFilter() {
+    titleSearchInput.value = '';
+    taskSourceInput.value = '';
+    startDateInput.value = '';
+    endDateInput.value = '';
+    priorityFilterSelect.value = 'all';
+    statusFilterSelect.value = 'all';
+    renderTasks();
+  }
+  // 事件监听
+  applyFilterBtn.addEventListener('click', applyFilter);
+  resetFilterBtn.addEventListener('click', resetFilter);
+  // 初始化
+  renderTasks();
+});</script> 
+        <!-- [/JSMOD] 56h_工作台页面:我的待办功能 --> 
+        <!-- 分页 --> 
+        <div class="flex justify-between items-center mt-6"> 
+         <div class="text-sm text-gray-500">
+           显示 1-5 条，共 5 条任务 
+         </div> 
+         <div class="flex space-x-1"> 
+          <button class="px-3 py-1 border border-gray-300 rounded-md text-sm disabled:opacity-50" disabled> 上一页 </button> 
+          <button class="px-3 py-1 bg-primary text-white rounded-md text-sm"> 1 </button> 
+          <button class="px-3 py-1 border border-gray-300 rounded-md text-sm disabled:opacity-50" disabled> 下一页 </button> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <!-- [/MODULE] 45g_工作台页面:我的待办内容 -- 显示待办任务列表，包含筛选区域、任务表格和分页控件 --> 
+      <!-- [MODULE] 67h_工作台页面:我的发起内容 --> 
+      <div class="workbench-content hidden" id="my-initiatives"> 
+       <div class="mb-6"> 
+        <h2 class="text-xl font-semibold text-gray-800 mb-4"> 我的发起 </h2> 
+        <!-- 筛选区域 --> 
+        <div class="bg-gray-50 p-4 rounded-lg mb-6"> 
+         <div class="grid grid-cols-1 md:grid-cols-4 gap-4"> 
+          <div> 
+           <label class="block text-xs text-gray-500 mb-1"> 标题搜索 </label> 
+           <div class="relative"> 
+            <input class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm" id="initiative-title-search" placeholder="输入标题关键词" type="text"> 
+            <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"> </i> 
+           </div> 
+          </div> 
+          <div> 
+           <label class="block text-xs text-gray-500 mb-1"> 发起来源 </label> 
+           <div class="relative"> 
+            <input class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm" id="initiative-source-search" placeholder="输入发起来源关键词" type="text"> 
+            <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"> </i> 
+           </div> 
+          </div> 
+          <div> 
+           <label class="block text-xs text-gray-500 mb-1"> 发起时间 </label> 
+           <div class="grid grid-cols-2 gap-2"> 
+            <input class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm" id="initiative-start-date" type="date"> 
+            <input class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm" id="initiative-end-date" type="date"> 
+           </div> 
+          </div> 
+          <div> 
+           <label class="block text-xs text-gray-500 mb-1"> 状态 </label> 
+           <select class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm" id="initiative-status-filter"> <option value="all"> 全部状态 </option> <option value="in-progress"> 进行中 </option> <option value="completed"> 已完成 </option> <option value="rejected"> 已驳回 </option> </select> 
+          </div> 
+         </div> 
+         <div class="mt-3 flex justify-end"> 
+          <button class="px-3 py-1 text-xs border border-gray-300 rounded-md mr-2 hover:bg-gray-50" id="reset-initiative-filter"> 重置 </button> 
+          <button class="px-3 py-1 text-xs bg-primary text-white rounded-md hover:bg-primary-dark" id="apply-initiative-filter"> 筛选 </button> 
+         </div> 
+        </div> 
+        <!-- 流程列表 --> 
+        <div class="overflow-x-auto"> 
+         <table class="min-w-full divide-y divide-gray-200"> 
+          <thead> 
+           <tr> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> ID </th> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> 标题 </th> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> 发起来源 </th> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> 发起时间 </th> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> 状态 </th> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> 当前节点 </th> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> 当前处理人 </th> 
+            <th class="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"> 操作 </th> 
+           </tr> 
+          </thead> 
+          <tbody class="bg-white divide-y divide-gray-200" id="initiative-list"> 
+           <!-- 流程数据将通过JS动态生成 --> 
+          </tbody> 
+         </table> 
+        </div> 
+        <!-- 分页 --> 
+        <div class="flex justify-between items-center mt-6"> 
+         <div class="text-sm text-gray-500">
+           显示 1-10 条，共 12 条流程 
+         </div> 
+         <div class="flex space-x-1"> 
+          <button class="px-3 py-1 border border-gray-300 rounded-md text-sm disabled:opacity-50" disabled> 上一页 </button> 
+          <button class="px-3 py-1 bg-primary text-white rounded-md text-sm"> 1 </button> 
+          <button class="px-3 py-1 border border-gray-300 rounded-md text-sm"> 2 </button> 
+          <button class="px-3 py-1 border border-gray-300 rounded-md text-sm"> 下一页 </button> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <!-- [/MODULE] 67h_工作台页面:我的发起内容 -- 显示发起流程列表，包含筛选区域、流程表格和分页控件 --> 
+      <!-- [MODULE] 89i_工作台页面:我的看板内容 --> 
+      <div class="workbench-content hidden" id="my-dashboard"> 
+       <!-- 时间段筛选器 --> 
+       <div class="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4"> 
+        <div class="flex items-center space-x-4"> 
+         <div class="relative"> 
+          <input class="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" id="dashboard-start-date" type="date"> 
+          <i class="fas fa-calendar absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"> </i> 
+         </div> 
+         <span class="text-gray-500"> 至 </span> 
+         <div class="relative"> 
+          <input class="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" id="dashboard-end-date" type="date"> 
+          <i class="fas fa-calendar absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"> </i> 
+         </div> 
+         <button class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors"> <i class="fas fa-filter mr-2"> </i> 筛选 </button> 
+        </div> 
+        <button class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors flex items-center" id="add-chart-btn"> <i class="fas fa-plus mr-2"> </i> 新增图表 </button> 
+       </div> 
+       <!-- 看板容器 --> 
+       <div class="space-y-6" id="dashboard-container"> 
+        <!-- 图表项示例 --> 
+        <div class="chart-item bg-gray-50 p-4 rounded-lg border border-gray-200 relative" draggable="true"> 
+         <div class="flex justify-between items-start mb-4"> 
+          <h3 class="font-medium text-gray-800"> 销售趋势分析 </h3> 
+          <div class="flex space-x-2"> 
+           <button class="chart-fullscreen-btn text-gray-500 hover:text-primary transition-colors" title="全屏"> <i class="fas fa-expand"> </i> </button> 
+           <button class="chart-delete-btn text-gray-500 hover:text-danger transition-colors" title="删除"> <i class="fas fa-trash"> </i> </button> 
+          </div> 
+         </div> 
+         <div class="chart-container w-full h-64 bg-white p-4 rounded shadow-sm"> 
+         </div> 
+        </div> 
+        <div class="chart-item bg-gray-50 p-4 rounded-lg border border-gray-200 relative" draggable="true"> 
+         <div class="flex justify-between items-start mb-4"> 
+          <h3 class="font-medium text-gray-800"> 用户分布 </h3> 
+          <div class="flex space-x-2"> 
+           <button class="chart-fullscreen-btn text-gray-500 hover:text-primary transition-colors" title="全屏"> <i class="fas fa-expand"> </i> </button> 
+           <button class="chart-delete-btn text-gray-500 hover:text-danger transition-colors" title="删除"> <i class="fas fa-trash"> </i> </button> 
+          </div> 
+         </div> 
+         <div class="chart-container w-full h-64 bg-white p-4 rounded shadow-sm"> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <!-- [/MODULE] 89i_工作台页面:我的看板内容 -- 包含时间段筛选器和可拖拽排序的图表看板，支持新增、删除图表和图表全屏功能 --> 
+      <!-- [MODULE] 12j_工作台页面:我的应用内容 --> 
+      <div class="workbench-content hidden" id="my-applications"> 
+       <div class="bg-white rounded-xl shadow-panel p-8 text-center"> 
+        <i class="fas fa-clock text-6xl text-gray-200 mb-4"> </i> 
+        <h2 class="text-2xl font-semibold text-gray-700 mb-2"> 我的应用待上线 </h2> 
+        <p class="text-gray-400"> 该功能正在开发中，敬请期待 </p> 
+       </div> 
+      </div> 
+      <!-- [/MODULE] 12j_工作台页面:我的应用内容 -- 显示"我的应用待上线"提示 --> 
+      <!-- [MODULE] 34k_工作台页面:我的业务内容 --> 
+      <div class="workbench-content hidden" id="my-business"> 
+       <!-- 筛选栏 --> 
+       <div class="bg-white rounded-xl shadow-panel p-6 mb-6"> 
+        <div class="flex flex-col md:flex-row gap-4"> 
+         <div class="flex-1"> 
+          <label class="block text-sm font-medium text-gray-700 mb-2"> 应用名称 </label> 
+          <input type="text" id="app-name-filter" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="请输入应用名称"> 
+         </div> 
+         <div class="flex-1"> 
+          <label class="block text-sm font-medium text-gray-700 mb-2"> 应用类型 </label> 
+          <select id="app-type-filter" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"> <option value> 全部类型 </option> <option value="研发"> 研发 </option> <option value="产品"> 产品 </option> <option value="销售"> 销售 </option> <option value="计划"> 计划 </option> <option value="采购"> 采购 </option> <option value="生产"> 生产 </option> <option value="质量"> 质量 </option> <option value="资源"> 资源 </option> <option value="设备"> 设备 </option> <option value="人力"> 人力 </option> <option value="仓库"> 仓库 </option> <option value="物流"> 物流 </option> <option value="货运"> 货运 </option> <option value="售后"> 售后 </option> <option value="能源"> 能源 </option> <option value="监控"> 监控 </option> <option value="BI"> BI </option> <option value="财务"> 财务 </option> </select> 
+         </div> 
+         <div class="flex items-end"> 
+          <button id="reset-filter" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors"> <i class="fas fa-redo mr-2"> </i> 重置 </button> 
+         </div> 
+        </div> 
+       </div> 
+       <!-- 应用列表 --> 
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="app-list" data-ytextravalue="extra-4je7lyl4t"> 
+        <a class="yt-a-defalut-link" target="_top" is-page="true" href="javascript:void(0);" custom-href="w=1920&amp;h=1080&amp;appuuid=2007032279200694272&amp;version=1&amp;pageType=web&amp;uuid=2007030142320246784&amp;appName=赋能平台（Pro）副本" onclick="ytCustomLinkNavigation()" custom-a="true" is-add="false" style="display: inline; padding: 0px; border: 0px; box-shadow: none;"> 
+         <div class="bg-white rounded-xl shadow-panel p-6 app-item yt-editor" data-name="监控管理系统" data-type="监控" data-ytparentvalue="extra-4je7lyl4t" data-ytoriginindex="15" data-ytindex="13" style="opacity: 1;" data-ytextravalue="extra-vnku5r3uj" data-selectorname="#id-yv4by"> 
+          <div class="flex items-start" data-ytoriginindex="0" data-ytindex="0"> 
+           <img src="./2006600210901368832/29d38a33ee56daddccdfa95fd8d82859.png" alt="监控管理系统" class="w-16 h-16 rounded-md object-cover mr-4"> 
+           <div class="flex-1"> 
+            <h3 class="text-lg font-semibold text-gray-900 mb-1 yt-editor" contenteditable="false" style="outline: none;"> 数据采集和监控 </h3> 
+            <div class="text-sm text-primary bg-primary-light px-2 py-1 rounded inline-block mb-2">
+              监控 
+            </div> 
+            <p class="text-gray-500 text-sm"> 用于设备监控、数据采集和异常报警的监控管理系统 </p> 
+           </div> 
+          </div> 
+         </div> </a> 
+        <!-- 采购应用 --> 
+        <div class="bg-white rounded-xl shadow-panel p-6 app-item" data-name="采购管理系统" data-type="采购" data-ytoriginindex="4" data-ytindex="2"> 
+         <div class="flex items-start"> 
+          <img src="./2006600210901368832/ac3db1562bcd1c1995d856d87647327f.png" alt="采购管理系统" class="w-16 h-16 rounded-md object-cover mr-4"> 
+          <div class="flex-1"> 
+           <h3 class="text-lg font-semibold text-gray-900 mb-1"> 采购管理系统 </h3> 
+           <div class="text-sm text-primary bg-primary-light px-2 py-1 rounded inline-block mb-2">
+             采购 
+           </div> 
+           <p class="text-gray-500 text-sm"> 用于供应商管理、采购订单和库存管理的采购管理系统 </p> 
+          </div> 
+         </div> 
+        </div> 
+        <!-- 生产应用 --> 
+        <div class="bg-white rounded-xl shadow-panel p-6 app-item" data-name="生产制造系统" data-type="生产" data-ytoriginindex="5" data-ytindex="3"> 
+         <div class="flex items-start"> 
+          <img src="./2006600210901368832/0b2d728c979b20c9e562f77ed3a55787.png" alt="生产制造系统" class="w-16 h-16 rounded-md object-cover mr-4"> 
+          <div class="flex-1"> 
+           <h3 class="text-lg font-semibold text-gray-900 mb-1"> 生产制造系统 </h3> 
+           <div class="text-sm text-primary bg-primary-light px-2 py-1 rounded inline-block mb-2">
+             生产 
+           </div> 
+           <p class="text-gray-500 text-sm"> 用于生产计划、车间管理和质量控制的生产制造系统 </p> 
+          </div> 
+         </div> 
+        </div> 
+        <!-- 质量应用 --> 
+        <div class="bg-white rounded-xl shadow-panel p-6 app-item" data-name="质量管理系统" data-type="质量" data-ytoriginindex="6" data-ytindex="4"> 
+         <div class="flex items-start"> 
+          <img src="./2006600210901368832/1a198342cdc03578f4782e180a8f62f0.png" alt="质量管理系统" class="w-16 h-16 rounded-md object-cover mr-4"> 
+          <div class="flex-1"> 
+           <h3 class="text-lg font-semibold text-gray-900 mb-1"> 质量管理系统 </h3> 
+           <div class="text-sm text-primary bg-primary-light px-2 py-1 rounded inline-block mb-2">
+             质量 
+           </div> 
+           <p class="text-gray-500 text-sm"> 用于质量检测、不合格品管理和质量报告的质量管理系统 </p> 
+          </div> 
+         </div> 
+        </div> 
+        <!-- 资源应用 --> 
+        <div class="bg-white rounded-xl shadow-panel p-6 app-item" data-name="资源管理系统" data-type="资源" data-ytoriginindex="7" data-ytindex="5"> 
+         <div class="flex items-start"> 
+          <img src="./2006600210901368832/b5786e847dcf0868b1db4a4c8f41d129.png" alt="资源管理系统" class="w-16 h-16 rounded-md object-cover mr-4"> 
+          <div class="flex-1"> 
+           <h3 class="text-lg font-semibold text-gray-900 mb-1"> 资源管理系统 </h3> 
+           <div class="text-sm text-primary bg-primary-light px-2 py-1 rounded inline-block mb-2">
+             资源 
+           </div> 
+           <p class="text-gray-500 text-sm"> 用于设备资源、人力资源和物料资源的综合管理系统 </p> 
+          </div> 
+         </div> 
+        </div> 
+        <!-- 设备应用 --> 
+        <div class="bg-white rounded-xl shadow-panel p-6 app-item" data-name="设备管理系统" data-type="设备" data-ytoriginindex="8" data-ytindex="6"> 
+         <div class="flex items-start"> 
+          <img src="./2006600210901368832/d9c9271cd432e62428e2178ba1159f22.png" alt="设备管理系统" class="w-16 h-16 rounded-md object-cover mr-4"> 
+          <div class="flex-1"> 
+           <h3 class="text-lg font-semibold text-gray-900 mb-1"> 设备管理系统 </h3> 
+           <div class="text-sm text-primary bg-primary-light px-2 py-1 rounded inline-block mb-2">
+             设备 
+           </div> 
+           <p class="text-gray-500 text-sm"> 用于设备台账、维护计划和故障管理的设备管理系统 </p> 
+          </div> 
+         </div> 
+        </div> 
+        <!-- 人力应用 --> 
+        <div class="bg-white rounded-xl shadow-panel p-6 app-item" data-name="人力资源系统" data-type="人力" data-ytoriginindex="9" data-ytindex="7"> 
+         <div class="flex items-start"> 
+          <img src="./2006600210901368832/ec63a3f5f4db5bf86be6935d3ca4397f.png" alt="人力资源系统" class="w-16 h-16 rounded-md object-cover mr-4"> 
+          <div class="flex-1"> 
+           <h3 class="text-lg font-semibold text-gray-900 mb-1"> 人力资源系统 </h3> 
+           <div class="text-sm text-primary bg-primary-light px-2 py-1 rounded inline-block mb-2">
+             人力 
+           </div> 
+           <p class="text-gray-500 text-sm"> 用于员工管理、招聘培训和绩效考核的人力资源系统 </p> 
+          </div> 
+         </div> 
+        </div> 
+        <!-- 仓库应用 --> 
+        <div class="bg-white rounded-xl shadow-panel p-6 app-item" data-name="仓库管理系统" data-type="仓库" data-ytoriginindex="10" data-ytindex="8"> 
+         <div class="flex items-start"> 
+          <img src="./2006600210901368832/ee79816e23406924e59f9c85e3c9ad51.png" alt="仓库管理系统" class="w-16 h-16 rounded-md object-cover mr-4"> 
+          <div class="flex-1"> 
+           <h3 class="text-lg font-semibold text-gray-900 mb-1"> 仓库管理系统 </h3> 
+           <div class="text-sm text-primary bg-primary-light px-2 py-1 rounded inline-block mb-2">
+             仓库 
+           </div> 
+           <p class="text-gray-500 text-sm"> 用于库存管理、出入库操作和库存盘点的仓库管理系统 </p> 
+          </div> 
+         </div> 
+        </div> 
+        <!-- 物流应用 --> 
+        <div class="bg-white rounded-xl shadow-panel p-6 app-item" data-name="物流管理系统" data-type="物流" data-ytoriginindex="11" data-ytindex="9"> 
+         <div class="flex items-start"> 
+          <img src="./2006600210901368832/3995cea6c46c99774d6291a00c920c6e.png" alt="物流管理系统" class="w-16 h-16 rounded-md object-cover mr-4"> 
+          <div class="flex-1"> 
+           <h3 class="text-lg font-semibold text-gray-900 mb-1"> 物流管理系统 </h3> 
+           <div class="text-sm text-primary bg-primary-light px-2 py-1 rounded inline-block mb-2">
+             物流 
+           </div> 
+           <p class="text-gray-500 text-sm"> 用于运输管理、配送调度和物流跟踪的物流管理系统 </p> 
+          </div> 
+         </div> 
+        </div> 
+        <!-- 货运应用 --> 
+        <div class="bg-white rounded-xl shadow-panel p-6 app-item" data-name="货运管理系统" data-type="货运" data-ytoriginindex="12" data-ytindex="10"> 
+         <div class="flex items-start"> 
+          <img src="./2006600210901368832/adb7ec1617c7a659d38ea714cbea824a.png" alt="货运管理系统" class="w-16 h-16 rounded-md object-cover mr-4"> 
+          <div class="flex-1"> 
+           <h3 class="text-lg font-semibold text-gray-900 mb-1"> 货运管理系统 </h3> 
+           <div class="text-sm text-primary bg-primary-light px-2 py-1 rounded inline-block mb-2">
+             货运 
+           </div> 
+           <p class="text-gray-500 text-sm"> 用于货运订单、车辆调度和运费结算的货运管理系统 </p> 
+          </div> 
+         </div> 
+        </div> 
+        <!-- 售后应用 --> 
+        <div class="bg-white rounded-xl shadow-panel p-6 app-item" data-name="售后服务系统" data-type="售后" data-ytoriginindex="13" data-ytindex="11"> 
+         <div class="flex items-start"> 
+          <img src="./2006600210901368832/d186aa299ce6af5e5160ce21bf24c754.png" alt="售后服务系统" class="w-16 h-16 rounded-md object-cover mr-4"> 
+          <div class="flex-1"> 
+           <h3 class="text-lg font-semibold text-gray-900 mb-1"> 售后服务系统 </h3> 
+           <div class="text-sm text-primary bg-primary-light px-2 py-1 rounded inline-block mb-2">
+             售后 
+           </div> 
+           <p class="text-gray-500 text-sm"> 用于售后工单、客户反馈和服务评价的售后服务系统 </p> 
+          </div> 
+         </div> 
+        </div> 
+        <!-- 能源应用 --> 
+        <div class="bg-white rounded-xl shadow-panel p-6 app-item" data-name="能源管理系统" data-type="能源" data-ytoriginindex="14" data-ytindex="12"> 
+         <div class="flex items-start"> 
+          <img src="./2006600210901368832/bd79a7a7538953b684f8dd165dfcb820.png" alt="能源管理系统" class="w-16 h-16 rounded-md object-cover mr-4"> 
+          <div class="flex-1"> 
+           <h3 class="text-lg font-semibold text-gray-900 mb-1"> 能源管理系统 </h3> 
+           <div class="text-sm text-primary bg-primary-light px-2 py-1 rounded inline-block mb-2">
+             能源 
+           </div> 
+           <p class="text-gray-500 text-sm"> 用于能源监控、能耗分析和节能管理的能源管理系统 </p> 
+          </div> 
+         </div> 
+        </div> 
+        <!-- 研发应用 --> 
+        <div class="bg-white rounded-xl shadow-panel p-6 app-item yt-editor" data-name="研发管理系统" data-type="研发" data-ytoriginindex="0" data-ytindex="14" data-ytparentvalue="extra-4je7lyl4t" style="opacity: 1; color: rgb(29, 33, 41); font-family: Inter, sans-serif; font-size: 16px; font-weight: 400; font-style: normal; line-height: 24px; text-align: start; text-indent: 0px;"> 
+         <div class="flex items-start"> 
+          <img src="./2006600210901368832/a6c62fb89484698e7966c52030f59e50.png" alt="研发管理系统" class="w-16 h-16 rounded-md object-cover mr-4"> 
+          <div class="flex-1"> 
+           <h3 class="text-lg font-semibold text-gray-900 mb-1"> 研发管理系统 </h3> 
+           <div class="text-sm text-primary bg-primary-light px-2 py-1 rounded inline-block mb-2">
+             研发 
+           </div> 
+           <p class="text-gray-500 text-sm"> 用于管理项目进度、代码版本和团队协作的研发管理平台 </p> 
+          </div> 
+         </div> 
+        </div> 
+        <!-- BI应用 --> 
+        <div class="bg-white rounded-xl shadow-panel p-6 app-item" data-name="BI数据分析系统" data-type="BI" data-ytoriginindex="16" data-ytindex="15"> 
+         <div class="flex items-start"> 
+          <img src="./2006600210901368832/7bc7dc303c5cc1a836a3d66f366d6d0a.png" alt="BI数据分析系统" class="w-16 h-16 rounded-md object-cover mr-4"> 
+          <div class="flex-1"> 
+           <h3 class="text-lg font-semibold text-gray-900 mb-1"> BI数据分析系统 </h3> 
+           <div class="text-sm text-primary bg-primary-light px-2 py-1 rounded inline-block mb-2">
+             BI 
+           </div> 
+           <p class="text-gray-500 text-sm"> 用于数据可视化、报表分析和决策支持的BI数据分析系统 </p> 
+          </div> 
+         </div> 
+        </div> 
+        <!-- 财务应用 --> 
+        <div class="bg-white rounded-xl shadow-panel p-6 app-item" data-name="财务管理系统" data-type="财务" data-ytoriginindex="17" data-ytindex="16"> 
+         <div class="flex items-start"> 
+          <img src="./2006600210901368832/5d2cb7c9dd699187da245228db5a68b6.png" alt="财务管理系统" class="w-16 h-16 rounded-md object-cover mr-4"> 
+          <div class="flex-1"> 
+           <h3 class="text-lg font-semibold text-gray-900 mb-1"> 财务管理系统 </h3> 
+           <div class="text-sm text-primary bg-primary-light px-2 py-1 rounded inline-block mb-2">
+             财务 
+           </div> 
+           <p class="text-gray-500 text-sm"> 用于会计核算、财务报表和资金管理的财务管理系统 </p> 
+          </div> 
+         </div> 
+        </div> 
+        <!-- 销售应用 --> 
+        <div class="bg-white rounded-xl shadow-panel p-6 app-item yt-editor" data-name="销售CRM系统" data-type="销售" data-ytoriginindex="2" data-ytindex="17" data-ytparentvalue="extra-4je7lyl4t" style="opacity: 1;"> 
+         <div class="flex items-start"> 
+          <img src="./2006600210901368832/0f679fb9366ce326dfa3ea4c252c34ec.png" alt="销售CRM系统" class="w-16 h-16 rounded-md object-cover mr-4"> 
+          <div class="flex-1"> 
+           <h3 class="text-lg font-semibold text-gray-900 mb-1"> 销售CRM系统 </h3> 
+           <div class="text-sm text-primary bg-primary-light px-2 py-1 rounded inline-block mb-2">
+             销售 
+           </div> 
+           <p class="text-gray-500 text-sm"> 用于客户管理、销售跟进和业绩统计的销售CRM系统 </p> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <!-- [/MODULE] 34k_工作台页面:我的业务内容 -- 显示应用清单，支持按名称和类型筛选 --> 
+     </div> 
+     <!-- [/MODULE] 92e_工作台页面:右侧内容区域 -- 根据左侧菜单选择显示不同内容，包括我的消息、我的待办、我的发起、我的看板、我的应用五个内容区域 --> 
+    </div> 
+   </div> 
+   <!-- [/MODULE] k0l_工作台页面 -- 工作台内容区域，包含左侧菜单和右侧内容区域 --> 
+   <!-- [MODULE] m2n_应用管理页面 --> 
+   <div class="content-section hidden" id="app-management"> 
+    <div class="bg-white rounded-xl shadow-panel p-8 text-center"> 
+     <i class="fas fa-clock text-6xl text-gray-200 mb-4"> </i> 
+     <h2 class="text-2xl font-semibold text-gray-700 mb-2"> 应用管理待上线 </h2> 
+     <p class="text-gray-400"> 该功能正在开发中，敬请期待 </p> 
+    </div> 
+   </div> 
+   <!-- [/MODULE] m2n_应用管理页面 -- 应用管理内容区域，显示"应用管理待上线"提示 --> 
+   <!-- [MODULE] o4p_企业管理页面 --> 
+   <div class="content-section hidden" id="enterprise-management"> 
+   </div> 
+   <!-- [/MODULE] o4p_企业管理页面 -- 企业管理内容区域，显示"企业管理待上线"提示 --> 
+   <!-- [MODULE] q6r_系统管理页面 --> 
+   <div class="content-section hidden" id="system-management"> 
+   </div> 
+   <!-- [/MODULE] q6r_系统管理页面 -- 系统管理内容区域，显示"系统管理待上线"提示 --> 
+  </main> 
+  <!-- [/MODULE] i9j_主内容区域 -- 包含各菜单对应的内容区域，根据菜单点击显示不同内容 --> 
+  <!-- [MODULE] s8t_账号信息面板 --> 
+  <div class="fixed inset-y-0 right-0 w-full sm:w-96 bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 ease-in-out" id="account-panel"> 
+   <div class="flex flex-col h-full"> 
+    <!-- 面板头部 --> 
+    <div class="border-b border-gray-100 px-6 py-4 flex items-center justify-between"> 
+     <h2 class="text-lg font-semibold"> 账号信息 </h2> 
+     <button class="p-2 rounded-full hover:bg-gray-100 transition-colors duration-150" id="close-panel-button"> <i class="fas fa-times text-gray-500"> </i> </button> 
+    </div> 
+    <!-- 面板内容 --> 
+    <div class="flex-grow overflow-y-auto p-6 scrollbar-hide"> 
+     <!-- [MODULE] u0v_账号信息面板:基本信息 --> 
+     <div class="mb-8"> 
+      <h3 class="text-sm font-medium text-gray-500 mb-4"> 基本信息 </h3> 
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4"> 
+       <div> 
+        <p class="text-xs text-gray-500 mb-1"> 账号名称 </p> 
+        <p class="text-sm font-medium"> admin </p> 
+       </div> 
+       <div> 
+        <p class="text-xs text-gray-500 mb-1"> 昵称 </p> 
+        <p class="text-sm font-medium"> 管理员 </p> 
+       </div> 
+       <div> 
+        <p class="text-xs text-gray-500 mb-1"> 电话 </p> 
+        <p class="text-sm font-medium"> 138****6789 </p> 
+       </div> 
+       <div> 
+        <p class="text-xs text-gray-500 mb-1"> 邮箱 </p> 
+        <p class="text-sm font-medium"> admin@example.com </p> 
+       </div> 
+       <div> 
+        <p class="text-xs text-gray-500 mb-1"> 角色 </p> 
+        <p class="text-sm font-medium"> 系统管理员 </p> 
+       </div> 
+       <div> 
+        <p class="text-xs text-gray-500 mb-1"> 所属组织 </p> 
+        <p class="text-sm font-medium"> 总公司 </p> 
+       </div> 
+       <div class="md:col-span-2"> 
+        <p class="text-xs text-gray-500 mb-1"> 创建日期 </p> 
+        <p class="text-sm font-medium"> 2023-01-15 09:30:00 </p> 
+       </div> 
+      </div> 
+     </div> 
+     <!-- [/MODULE] u0v_账号信息面板:基本信息 -- 显示账号基本信息，包括账号名称、昵称、电话、邮箱、角色、所属组织、创建日期 --> 
+     <!-- [MODULE] w2x_账号信息面板:修改信息 --> 
+     <div class="mb-8"> 
+      <h3 class="text-sm font-medium text-gray-500 mb-4"> 修改信息 </h3> 
+      <form class="space-y-4" id="info-form"> 
+       <div> 
+        <label class="block text-xs text-gray-500 mb-1" for="nickname"> 昵称 </label> 
+        <input class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors duration-150 text-sm" id="nickname" type="text" value="管理员"> 
+       </div> 
+       <div> 
+        <label class="block text-xs text-gray-500 mb-1" for="phone"> 电话 </label> 
+        <input class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors duration-150 text-sm" id="phone" type="tel" value="138****6789"> 
+       </div> 
+       <div> 
+        <label class="block text-xs text-gray-500 mb-1" for="email"> 邮箱 </label> 
+        <input class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors duration-150 text-sm" id="email" type="email" value="admin@example.com"> 
+       </div> 
+       <button class="w-full bg-primary text-white py-2 rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors duration-150" type="submit"> 保存修改 </button> 
+      </form> 
+     </div> 
+     <!-- [/MODULE] w2x_账号信息面板:修改信息 -- 包含修改昵称、电话、邮箱的表单和保存修改按钮 --> 
+     <!-- [MODULE] y4z_账号信息面板:修改密码 --> 
+     <div> 
+      <h3 class="text-sm font-medium text-gray-500 mb-4"> 修改密码 </h3> 
+      <form class="space-y-4" id="password-form"> 
+       <div> 
+        <label class="block text-xs text-gray-500 mb-1" for="old-password"> 原密码 </label> 
+        <input class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors duration-150 text-sm" id="old-password" type="password"> 
+       </div> 
+       <div> 
+        <label class="block text-xs text-gray-500 mb-1" for="new-password"> 新密码 </label> 
+        <input class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors duration-150 text-sm" id="new-password" type="password"> 
+       </div> 
+       <div> 
+        <label class="block text-xs text-gray-500 mb-1" for="confirm-password"> 确认新密码 </label> 
+        <input class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors duration-150 text-sm" id="confirm-password" type="password"> 
+       </div> 
+       <button class="w-full bg-primary text-white py-2 rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors duration-150" type="submit"> 修改密码 </button> 
+      </form> 
+     </div> 
+     <!-- [/MODULE] y4z_账号信息面板:修改密码 -- 包含修改密码的表单，需要输入原密码、新密码和确认新密码，以及修改密码按钮 --> 
+    </div> 
+   </div> 
+  </div> 
+  <!-- [/MODULE] s8t_账号信息面板 -- 右侧滑出的账号信息面板，包含基本信息查看、修改信息和修改密码功能 --> 
+  <!-- 消息详情弹窗 --> 
+  <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center" id="message-detail-modal"> 
+   <div class="bg-white rounded-lg w-full max-w-2xl max-h-[80vh] overflow-hidden flex flex-col transform transition-all duration-300 scale-95 opacity-0" id="modal-content"> 
+    <div class="p-4 border-b flex justify-between items-center"> 
+     <h3 class="text-lg font-semibold" id="modal-title"> 消息详情 </h3> 
+     <button class="text-gray-500 hover:text-gray-700" id="close-modal"> <i class="fas fa-times"> </i> </button> 
+    </div> 
+    <div class="flex-grow overflow-y-auto p-6" id="modal-body"> 
+     <div class="mb-4"> 
+      <p class="text-sm text-gray-500"> 消息ID: <span id="modal-message-id"> MSG001 </span> </p> 
+     </div> 
+     <div class="mb-6"> 
+      <h4 class="text-xl font-medium text-gray-900 mb-" id="modal-message-title"> 系统更新通知 </h4> 
+      <p class="text-sm text-gray-500"> 接收时间: <span id="modal-message-time"> 2023-11-15 09:30:00 </span> </p> 
+     </div> 
+     <div class="prose max-w-none"> 
+      <h5 class="text-lg font-medium text-gray-800 mb-3"> 消息内容: </h5> 
+      <div class="text-gray-700 leading-relaxed" id="modal-message-content">
+        系统将于2023年11月18日00:00-02:00进行维护更新，期间系统可能会出现短暂不稳定建议您避开此时间段进行重要操作。更新后将新增多项功能，包括数据导出优化、报表生成加速和界面交互改进。感谢您的理解与支持！ 
+      </div> 
+     </div> 
+    </div> 
+    <div class="p-4 border-t flex justify-end"> 
+     <button class="px-4 py-2 border border-gray-300 rounded-md mr-2 hover:bg-gray-50 transition-colors" id="close-detail-modal"> 关闭 </button> 
+     <button class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors" id="mark-read-from-detail"> 标记已读 </button> 
+    </div> 
+   </div> 
+  </div> 
+  <!-- 遮罩层 --> 
+  <div class="fixed inset-0 bg-black bg-opacity-30 z-40 hidden transition-opacity duration-300 ease-in-out" id="overlay"> 
+  </div> 
+  <!-- [JSMOD] b2c_用户菜单交互 --> 
+  <script id="user-menu-script">document.addEventListener('DOMContentLoaded', function () {
+  // 用户菜单交互
+  var userMenuButton = document.getElementById('user-menu-button');
+  var userDropdown = document.getElementById('user-dropdown');
+  var dropdownOpen = false;
+  // 切换下拉菜单显示状态
+  function toggleDropdown() {
+    dropdownOpen = !dropdownOpen;
+    if (dropdownOpen) {
+      userDropdown.classList.remove('hidden', 'scale-95', 'opacity-0');
+      userDropdown.classList.add('scale-100', 'opacity-100');
+    } else {
+      userDropdown.classList.add('scale-95', 'opacity-0');
+      setTimeout(function () {
+        if (!dropdownOpen) {
+          userDropdown.classList.add('hidden');
+        }
+      }, 200);
+    }
+  }
+  // 点击用户按钮切换下拉菜单
+  userMenuButton.addEventListener('click', function (e) {
+    e.stopPropagation();
+    toggleDropdown();
+  });
+  // 点击页面其他地方关闭下拉菜单
+  document.addEventListener('click', function () {
+    if (dropdownOpen) {
+      dropdownOpen = false;
+      userDropdown.classList.add('scale-95', 'opacity-0');
+      setTimeout(function () {
+        userDropdown.classList.add('hidden');
+      }, 200);
+    }
+  });
+  // 阻止下拉菜单内部点击事件冒泡
+  userDropdown.addEventListener('click', function (e) {
+    e.stopPropagation();
+  });
+});</script> 
+  <!-- [/JSMOD] b2c_用户菜单交互 -- 处理用户头像点击弹出下拉菜单的交互逻辑，包括显示/隐藏动画和点击外部关闭菜单 --> 
+  <!-- [JSMOD] d4e_账号信息面板交互 --> 
+  <script id="account-panel-script">document.addEventListener('DOMContentLoaded', function () {
+  // 账号信息面板交互
+  var accountInfoButton = document.getElementById('account-info-button');
+  var closePanelButton = document.getElementById('close-panel-button');
+  var accountPanel = document.getElementById('account-panel');
+  var overlay = document.getElementById('overlay');
+  var dropdownOpen = false; // 从用户菜单交互脚本中同步的变量
+  // 打开账号信息面板
+  function openAccountPanel() {
+    accountPanel.classList.remove('translate-x-full');
+    overlay.classList.remove('hidden');
+    // 防止背景滚动
+    document.body.style.overflow = 'hidden';
+  }
+  // 关闭账号信息面板
+  function closeAccountPanel() {
+    accountPanel.classList.add('translate-x-full');
+    overlay.classList.add('hidden');
+    // 恢复背景滚动
+    document.body.style.overflow = '';
+  }
+  // 点击账号信息按钮打开面板
+  accountInfoButton.addEventListener('click', function () {
+    openAccountPanel();
+    // 关闭下拉菜单
+    var userDropdown = document.getElementById('user-dropdown');
+    userDropdown.classList.add('scale-95', 'opacity-0');
+    setTimeout(function () {
+      userDropdown.classList.add('hidden');
+    }, 200);
+    dropdownOpen = false;
+  });
+  // 点击关闭按钮关闭面板
+  closePanelButton.addEventListener('click', closeAccountPanel);
+  // 点击遮罩层关闭面板
+  overlay.addEventListener('click', closeAccountPanel);
+  // 按ESC键关闭面板
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !accountPanel.classList.contains('translate-x-full')) {
+      closeAccountPanel();
+    }
+  });
+});</script> 
+  <!-- [/JSMOD] d4e_账号信息面板交互 -- 处理账号信息面板的显示和隐藏交互，包括打开、关闭按钮和遮罩层点击事件 --> 
+  <!-- [JSMOD] f6g_菜单内容切换 --> 
+  <script id="menu-content-script">document.addEventListener('DOMContentLoaded', function () {
+  // 菜单内容切换
+  var menuItems = document.querySelectorAll('.menu-item');
+  var contentSections = document.querySelectorAll('.content-section');
+  // 设置默认选中的菜单项
+  menuItems[0].classList.add('bg-primary-light', 'text-primary');
+  // 菜单点击事件
+  menuItems.forEach(function (item) {
+    item.addEventListener('click', function () {
+      // 移除所有菜单项的选中状态
+      menuItems.forEach(function (menu) {
+        menu.classList.remove('bg-primary-light', 'text-primary');
+      });
+      // 添加当前菜单项的选中状态
+      item.classList.add('bg-primary-light', 'text-primary');
+      // 获取目标内容区域ID
+      var targetId = item.getAttribute('data-target');
+      // 隐藏所有内容区域
+      contentSections.forEach(function (section) {
+        section.classList.add('hidden');
+      });
+      // 显示目标内容区域
+      document.getElementById(targetId).classList.remove('hidden');
+    });
+  });
+});</script> 
+  <!-- [/JSMOD] f6g_菜单内容切换 -- 处理水平菜单栏的点击事件，切换显示不同的内容区域 --> 
+  <!-- [JSMOD] 23f_工作台页面:我的消息功能 --> 
+  <script id="message-function-script">document.addEventListener('DOMContentLoaded', function () {
+  // 消息数据
+  var messages = [{
+    id: 'MSG001',
+    title: '系统更新通知',
+    source: '系统管理员',
+    content: '系统将于2023年11月18日00:00-02:00进行维护更新，期间系统可能会出现短暂不稳定，建议您避开此时间段进行重要操作。更新后将新增多项功能，包括数据导出优化、报表生成加速和界面交互改进。感谢您的理解与支持！',
+    time: '2023-11-15 09:30:00',
+    read: false
+  }, {
+    id: 'MSG002',
+    title: '新功能上线提醒',
+    source: '产品部',
+    content: '我们很高兴地宣布，数据分析模块已完成升级并正式上线！新功能包括实时数据可视化、自定义报表生成和多维度数据分析工具。您可以通过工作台 > 数据分析进入使用。如有任何疑问，请联系客服支持。',
+    time: '2023-11-14 14:20:30',
+    read: false
+  }, {
+    id: 'MSG003',
+    title: '账号安全提醒',
+    source: '安全中心',
+    content: '检测到您的账号于2023-11-14 08:15:22在新设备（Windows 10, Chrome浏览器）上登录。如果这不是您的操作，请立即修改密码并联系安全中心。您可以在账号设置 > 安全中心查看详细登录记录。',
+    time: '2023-11-14 08:20:15',
+    read: true
+  }, {
+    id: 'MSG004',
+    title: '数据备份完成通知',
+    source: '系统管理员',
+    content: '您的月度数据备份已完成，备份时间：2023-11-13 23:45:30，备份文件大小：1.2GB。备份文件将保存30天，您可以在数据管理 > 备份与恢复中下载或删除备份文件。',
+    time: '2023-11-14 00:10:05',
+    read: true
+  }, {
+    id: 'MSG005',
+    title: '团队协作邀请',
+    source: '张三',
+    content: '张三邀请您加入"新产品开发"团队协作空间，您将拥有编辑权限。点击接受邀请或查看详情：[链接]。邀请有效期为7天，如未接受将自动失效。',
+    time: '2023-11-13 16:45:22',
+    read: false
+  }, {
+    id: 'MSG006',
+    title: '月度报表提醒',
+    source: '财务部',
+    content: '本月度报表生成即将截止，请于2023-11-15 24:00前完成数据核对与提交。逾期未提交将影响月度考核。您可以在工作台 > 报表中心找到相关报表模板和提交入口。',
+    time: '2023-11-12 10:30:00',
+    read: true
+  }, {
+    id: 'MSG007',
+    title: '系统公告',
+    source: '系统管理员',
+    content: '为提升系统性能，我们将于每周日凌晨2:00-4:00进行例行维护。维护期间部分功能可能无法使用，敬请谅解。系统维护记录和影响范围将提前在公告中心发布。',
+    time: '2023-11-10 09:00:00',
+    read: true
+  }, {
+    id: 'MSG008',
+    title: '功能使用指南',
+    source: '客服中心',
+    content: '您的团队近期使用"项目管理"功能频率较低，我们准备了详细使用指南和最佳实践案例，帮助您更高效地管理项目和任务。点击查看：[链接]',
+    time: '2023-11-09 14:25:18',
+    read: true
+  }, {
+    id: 'MSG009',
+    title: '存储空间预警',
+    source: '系统管理员',
+    content: '您的团队存储空间已使用85%（17GB/20GB），建议删除不必要的文件或联系管理员升级存储空间。您可以在团队设置 > 存储空间管理中查看详细存储分布。',
+    time: '2023-11-08 16:30:45',
+    read: true
+  }, {
+    id: 'MSG010',
+    title: '新版本功能调研',
+    source: '产品部',
+    content: '我们正在规划下一版本功能，诚邀您参与简短调研（约5分钟），帮助我们了解您的需求和期望。完成调研可获得100积分奖励。点击参与：[链接]',
+    time: '2023-11-07 11:15:30',
+    read: true
+  }, {
+    id: 'MSG011',
+    title: '培训课程邀请',
+    source: '人力资源部',
+    content: '我们将于2023-11-20举办"高级数据分析"线上培训，由资深数据分析师主讲。点击报名：[链接]，名额有限，请尽快确认。',
+    time: '2023-11-06 09:45:00',
+    read: false
+  }, {
+    id: 'MSG012',
+    title: 'API接口更新通知',
+    source: '技术部',
+    content: 'API v2.0版本将于2023-12-01正式上线，旧版API（v1.0）将在3个月后停止服务。请尽快完成接口迁移。更新文档：[链接]，迁移指南：[链接]',
+    time: '2023-11-05 15:20:10',
+    read: true
+  }];
+  // DOM元素
+  var messageList = document.getElementById('message-list');
+  var unreadCountElem = document.getElementById('unread-count');
+  var totalMessagesElem = document.getElementById('total-messages');
+  var selectAllCheckbox = document.getElementById('select-all-messages');
+  var markAsReadBtn = document.getElementById('mark-as-read');
+  var applyFilterBtn = document.getElementById('apply-filter');
+  var resetFilterBtn = document.getElementById('reset-filter');
+  var titleSearchInput = document.getElementById('message-title-search');
+  var sourceSearchInput = document.getElementById('message-source-search');
+  var startDateInput = document.getElementById('start-date');
+  var endDateInput = document.getElementById('end-date');
+  var statusFilterSelect = document.getElementById('status-filter');
+  var messageDetailModal = document.getElementById('message-detail-modal');
+  var modalContent = document.getElementById('modal-content');
+  var closeModalBtn = document.getElementById('close-modal');
+  var closeDetailModalBtn = document.getElementById('close-detail-modal');
+  var markReadFromDetailBtn = document.getElementById('mark-read-from-detail');
+  var modalTitle = document.getElementById('modal-title');
+  var modalMessageId = document.getElementById('modal-message-id');
+  var modalMessageTime = document.getElementById('modal-message-time');
+  var modalMessageContent = document.getElementById('modal-message-content');
+  var currentMessages = [].concat(messages);
+  var selectedMessages = [];
+  var currentMessageId = null;
+  // 渲染消息列表
+  function renderMessageList() {
+    var messagesToRender = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : currentMessages;
+    messageList.innerHTML = '';
+    if (messagesToRender.length === 0) {
+      var emptyRow = document.createElement('tr');
+      emptyRow.innerHTML = "<td colspan=\"6\" class=\"px-4 py-8 text-center text-gray-500\">\n              <i class=\"fas fa-inbox mb-2 text-2xl\"></i>\n              <p>没有找到匹配的消息</p>\n            </td>";
+      messageList.appendChild(emptyRow);
+      return;
+    }
+    messagesToRender.forEach(function (message) {
+      var row = document.createElement('tr');
+      row.className = 'hover:bg-gray-50 cursor-pointer transition-colors duration-150 message-row';
+      row.dataset.id = message.id;
+      row.innerHTML = "<td class=\"px-4 py-3 whitespace-nowrap\">\n              <input type=\"checkbox\" class=\"message-checkbox rounded text-primary focus:ring-primary\">\n            </td>\n            <td class=\"px-4 py-3 whitespace-nowrap text-sm text-gray-900\">".concat(message.id, "</td>\n            <td class=\"px-4 py-3 whitespace-nowrap\">\n              <div class=\"flex items-center\">").concat(!message.read ? '<span class="w-2 h-2 bg-primary rounded-full mr-2"></span>' : '', "<span class=\"text-sm font-medium text-gray-900").concat(!message.read ? "font-semibold" : '', "\">").concat(message.title, "</span>\n              </div>\n            </td>\n            <td class=\"px-4 py-3 whitespace-nowrap text-sm text-gray-500\">").concat(message.source, "</td>\n            <td class=\"px-4 py-3 whitespace-nowrap text-sm text-gray-500\">").concat(message.time, "</td>\n            <td class=\"px-4 py-3 whitespace-nowrap\">\n              <span class=\"px-2 py-1 text-xs rounded-full").concat(message.read ? "bg-gray-100 text-gray-800" : "bg-primary/10 text-primary", "\">").concat(message.read ? '已读' : '未读', "</span>\n            </td>");
+      // 点击行查看详情
+      row.addEventListener('click', function (e) {
+        if (!e.target.closest('input[type="checkbox"]')) {
+          openMessageDetail(message);
+        }
+      });
+      messageList.appendChild(row);
+    });
+    // 更新全选 checkbox 状态
+    updateSelectAllStatus();
+  }
+  // 打开消息详情
+  function openMessageDetail(message) {
+    currentMessageId = message.id;
+    modalTitle.textContent = message.title;
+    modalMessageId.textContent = message.id;
+    modalMessageTime.textContent = message.time;
+    modalMessageContent.textContent = message.content;
+    // 显示弹窗
+    messageDetailModal.classList.remove('hidden');
+    setTimeout(function () {
+      modalContent.classList.remove('scale-95', 'opacity-0');
+      modalContent.classList.add('scale-100', 'opacity-100');
+    }, 10);
+    // 如果是未读消息，标记为已读
+    if (!message.read) {
+      markMessageAsRead(message.id);
+    }
+  }
+  // 关闭消息详情
+  function closeMessageDetail() {
+    modalContent.classList.remove('scale-100', 'opacity-100');
+    modalContent.classList.add('scale-95', 'opacity-0');
+    setTimeout(function () {
+      messageDetailModal.classList.add('hidden');
+      currentMessageId = null;
+    }, 300);
+  }
+  // 标记消息为已读
+  function markMessageAsRead(messageId) {
+    var messageIndex = messages.findIndex(function (m) {
+      return m.id === messageId;
+    });
+    if (messageIndex !== -1) {
+      messages[messageIndex].read = true;
+      currentMessages = [].concat(messages);
+      renderMessageList();
+      updateUnreadCount();
+    }
+  }
+  // 批量标记已读
+  function markSelectedAsRead() {
+    if (selectedMessages.length === 0) return;
+    selectedMessages.forEach(function (id) {
+      var messageIndex = messages.findIndex(function (m) {
+        return m.id === id;
+      });
+      if (messageIndex !== -1) {
+        messages[messageIndex].read = true;
+      }
+    });
+    currentMessages = [].concat(messages);
+    selectedMessages = [];
+    renderMessageList();
+    updateUnreadCount();
+    updateSelectAllStatus();
+  }
+  // 更新未读消息数量
+  function updateUnreadCount() {
+    var unreadCount = messages.filter(function (m) {
+      return !m.read;
+    }).length;
+    if (unreadCountElem) {
+      unreadCountElem.textContent = unreadCount;
+      unreadCountElem.classList.toggle('hidden', unreadCount === 0);
+    }
+    if (totalMessagesElem) {
+      totalMessagesElem.textContent = messages.length;
+    }
+  }
+  // 应用筛选
+  function applyFilter() {
+    var title = titleSearchInput.value.toLowerCase().trim();
+    var source = sourceSearchInput.value.toLowerCase().trim();
+    var startDate = startDateInput.value;
+    var endDate = endDateInput.value;
+    var status = statusFilterSelect.value;
+    var filteredMessages = [].concat(messages);
+    // 标题筛选
+    if (title) {
+      filteredMessages = filteredMessages.filter(function (m) {
+        return m.title.toLowerCase().includes(title);
+      });
+    }
+    // 来源筛选
+    if (source) {
+      filteredMessages = filteredMessages.filter(function (m) {
+        return m.source.toLowerCase().includes(source);
+      });
+    }
+    // 日期筛选
+    if (startDate) {
+      filteredMessages = filteredMessages.filter(function (m) {
+        var messageDate = new Date(m.time.split("")[0]);
+        return messageDate >= new Date(startDate);
+      });
+    }
+    if (endDate) {
+      filteredMessages = filteredMessages.filter(function (m) {
+        var messageDate = new Date(m.time.split("")[0]);
+        return messageDate <= new Date(endDate);
+      });
+    }
+    // 状态筛选
+    if (status === 'read') {
+      filteredMessages = filteredMessages.filter(function (m) {
+        return m.read;
+      });
+    } else if (status === 'unread') {
+      filteredMessages = filteredMessages.filter(function (m) {
+        return !m.read;
+      });
+    }
+    currentMessages = filteredMessages;
+    renderMessageList();
+  }
+  // 重置筛选
+  function resetFilter() {
+    titleSearchInput.value = '';
+    sourceSearchInput.value = '';
+    startDateInput.value = '';
+    endDateInput.value = '';
+    statusFilterSelect.value = 'all';
+    currentMessages = [].concat(messages);
+    renderMessageList();
+  }
+  // 更新全选状态
+  function updateSelectAllStatus() {
+    var checkboxes = messageList.querySelectorAll('.message-checkbox');
+    selectAllCheckbox.checked = checkboxes.length > 0 && checkboxes.length === selectedMessages.length;
+  }
+  // 事件监听
+  if (selectAllCheckbox) {
+    selectAllCheckbox.addEventListener('change', function () {
+      var checkboxes = messageList.querySelectorAll('.message-checkbox');
+      if (this.checked) {
+        // 全选
+        selectedMessages = currentMessages.map(function (m) {
+          return m.id;
+        });
+        checkboxes.forEach(function (checkbox) {
+          checkbox.checked = true;
+        });
+      } else {
+        // 取消全选
+        selectedMessages = [];
+        checkboxes.forEach(function (checkbox) {
+          checkbox.checked = false;
+        });
+      }
+    });
+  }
+  // 单个复选框变化时更新选中状态
+  messageList.addEventListener('change', function (e) {
+    if (e.target.classList.contains('message-checkbox')) {
+      var messageId = e.target.closest('.message-row').dataset.id;
+      if (e.target.checked) {
+        if (!selectedMessages.includes(messageId)) {
+          selectedMessages.push(messageId);
+        }
+      } else {
+        selectedMessages = selectedMessages.filter(function (id) {
+          return id !== messageId;
+        });
+      }
+      updateSelectAllStatus();
+    }
+  });
+  if (markAsReadBtn) {
+    markAsReadBtn.addEventListener('click', markSelectedAsRead);
+  }
+  if (applyFilterBtn) {
+    applyFilterBtn.addEventListener('click', applyFilter);
+  }
+  if (resetFilterBtn) {
+    resetFilterBtn.addEventListener('click', resetFilter);
+  }
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', closeMessageDetail);
+  }
+  if (closeDetailModalBtn) {
+    closeDetailModalBtn.addEventListener('click', closeMessageDetail);
+  }
+  if (markReadFromDetailBtn) {
+    markReadFromDetailBtn.addEventListener('click', function () {
+      if (currentMessageId) {
+        markMessageAsRead(currentMessageId);
+        closeMessageDetail();
+      }
+    });
+  }
+  // 点击模态框外部关闭
+  if (messageDetailModal) {
+    messageDetailModal.addEventListener('click', function (e) {
+      if (e.target === messageDetailModal) {
+        closeMessageDetail();
+      }
+    });
+  }
+  // 初始化
+  updateUnreadCount();
+  renderMessageList();
+});</script> 
+  <!-- [/JSMOD] 23f_工作台页面:我的消息功能 -- 实现消息列表展示、筛选、未读提示、详情查看和批量标记已读功能 --> 
+  <!-- [JSMOD] 34k_工作台页面:菜单切换 --> 
+  <script id="workbench-menu-script">document.addEventListener('DOMContentLoaded', function () {
+  // 工作台菜单切换
+  var workbenchMenuItems = document.querySelectorAll('.workbench-menu-item');
+  var workbenchContents = document.querySelectorAll('.workbench-content');
+  // 设置默认选中的工作台菜单项
+  if (workbenchMenuItems.length > 0) {
+    workbenchMenuItems[0].classList.add('bg-primary-light', 'text-primary');
+  }
+  // 工作台菜单点击事件
+  workbenchMenuItems.forEach(function (item) {
+    item.addEventListener('click', function () {
+      // 移除所有工作台菜单项的选中状态
+      workbenchMenuItems.forEach(function (menu) {
+        menu.classList.remove('bg-primary-light', 'text-primary');
+      });
+      // 添加当前工作台菜单项的选中状态
+      item.classList.add('bg-primary-light', 'text-primary');
+      // 获取目标内容区域ID
+      var targetId = item.getAttribute('data-target');
+      // 隐藏所有工作台内容区域
+      workbenchContents.forEach(function (content) {
+        content.classList.add('hidden');
+      });
+      // 显示目标内容区域
+      document.getElementById(targetId).classList.remove('hidden');
+    });
+  });
+  // 当切换到工作台页面时，确保默认内容区域显示
+  var menuItems = document.querySelectorAll('.menu-item');
+  menuItems.forEach(function (item) {
+    item.addEventListener('click', function () {
+      if (item.getAttribute('data-target') === 'workbench' && workbenchContents.length > 0) {
+        workbenchContents.forEach(function (content, index) {
+          if (index === 0) {
+            content.classList.remove('hidden');
+          } else {
+            content.classList.add('hidden');
+          }
+        });
+        workbenchMenuItems.forEach(function (menu, index) {
+          if (index === 0) {
+            menu.classList.add('bg-primary-light', 'text-primary');
+          } else {
+            menu.classList.remove('bg-primary-light', 'text-primary');
+          }
+        });
+      }
+    });
+  });
+});</script> 
+  <!-- [/JSMOD] 34k_工作台页面:菜单切换 -- 处理工作台页面左侧垂直菜单的点击事件，切换显示不同的内容区域 --> 
+  <!-- [JSMOD] a2d_图表列表弹窗 --> 
+  <script id="chart-list-modal-script">document.addEventListener('DOMContentLoaded', function () {
+  // 图表列表数据
+  var chartData = [{
+    id: 1,
+    app: '销售管理',
+    dashboard: '业绩分析',
+    name: '月度销售额',
+    type: '折线图'
+  }, {
+    id: 2,
+    app: '用户管理',
+    dashboard: '用户画像',
+    name: '用户地域分布',
+    type: '饼图'
+  }, {
+    id: 3,
+    app: '库存管理',
+    dashboard: '库存监控',
+    name: '库存周转率',
+    type: '柱状图'
+  }, {
+    id: 4,
+    app: '财务管理',
+    dashboard: '财务概览',
+    name: '利润率指标',
+    type: '指标图'
+  }, {
+    id: 5,
+    app: '营销活动',
+    dashboard: '活动效果',
+    name: '转化率分析',
+    type: '折线图'
+  }];
+  // 创建弹窗元素
+  var modalHTML = "<div id=\"chart-list-modal\" class=\"fixed inset-0 z-50 hidden overflow-y-auto\">\n          <div class=\"flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0\">\n            <div class=\"fixed inset-0 transition-opacity\" aria-hidden=\"true\">\n              <div class=\"absolute inset-0 bg-gray-500 opacity-75\"></div>\n            </div>\n            <span class=\"hidden sm:inline-block sm:align-middle sm:h-screen\" aria-hidden=\"true\">&#8203;</span>\n            <div class=\"inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full\">\n              <div class=\"bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4\">\n                <div class=\"sm:flex sm:items-start\">\n                  <div class=\"mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full\">\n                    <h3 class=\"text-lg leading-6 font-medium text-gray-900 mb-4\">选择图表</h3>\n                    <div class=\"mb-4\">\n                      <input type=\"text\" id=\"chart-search\" placeholder=\"搜索图表...\" class=\"w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary\">\n                    </div>\n                    <div class=\"overflow-y-auto max-h-96 border border-gray-200 rounded-md\">\n                      <table class=\"min-w-full divide-y divide-gray-200\">\n                        <thead>\n                          <tr>\n                            <th class=\"px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">应用名称</th>\n                            <th class=\"px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">看板名称</th>\n                            <th class=\"px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">图表名称</th>\n                            <th class=\"px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">图表类型</th>\n                          </tr>\n                        </thead>\n                        <tbody id=\"chart-list-body\" class=\"bg-white divide-y divide-gray-200\">\n                          <!-- 图表列表数据将通过JS动态生成 -->\n                        </tbody>\n                      </table>\n                    </div>\n                  </div>\n                </div>\n              </div>\n              <div class=\"bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse\">\n                <button type=\"button\" id=\"confirm-chart-btn\" class=\"w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-base font-medium text-white hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary sm:ml-3 sm:w-auto sm:text-sm\">\n                  确认添加\n                </button>\n                <button type=\"button\" id=\"cancel-chart-btn\" class=\"mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm\">\n                  取消\n                </button>\n              </div>\n            </div>\n          </div>\n        </div>";
+  document.body.insertAdjacentHTML('beforeend', modalHTML);
+  var modal = document.getElementById('chart-list-modal');
+  var addChartBtn = document.getElementById('add-chart-btn');
+  var cancelBtn = document.getElementById('cancel-chart-btn');
+  var confirmBtn = document.getElementById('confirm-chart-btn');
+  var searchInput = document.getElementById('chart-search');
+  var chartListBody = document.getElementById('chart-list-body');
+  var selectedChartId = null;
+  // 渲染图表列表
+  function renderChartList(data) {
+    chartListBody.innerHTML = '';
+    data.forEach(function (chart) {
+      var row = document.createElement('tr');
+      row.className = 'hover:bg-gray-50 cursor-pointer';
+      row.dataset.id = chart.id;
+      row.dataset.type = chart.type;
+      row.innerHTML = "<td class=\"px-4 py-3 whitespace-nowrap\">".concat(chart.app, "</td>\n            <td class=\"px-4 py-3 whitespace-nowrap\">").concat(chart.dashboard, "</td>\n            <td class=\"px-4 py-3 whitespace-nowrap\">").concat(chart.name, "</td>\n            <td class=\"px-4 py-3 whitespace-nowrap\">\n              <span class=\"px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800\">").concat(chart.type, "</span>\n            </td>");
+      row.addEventListener('click', function () {
+        // 移除其他行的选中状态
+        document.querySelectorAll('#chart-list-body tr').forEach(function (r) {
+          r.classList.remove('bg-primary-light');
+        });
+        // 添加当前行的选中状态
+        row.classList.add('bg-primary-light');
+        selectedChartId = chart.id;
+      });
+      chartListBody.appendChild(row);
+    });
+  }
+  // 初始渲染
+  renderChartList(chartData);
+  // 搜索功能
+  searchInput.addEventListener('input', function (e) {
+    var searchTerm = e.target.value.toLowerCase();
+    var filteredData = chartData.filter(function (chart) {
+      return chart.app.toLowerCase().includes(searchTerm) || chart.dashboard.toLowerCase().includes(searchTerm) || chart.name.toLowerCase().includes(searchTerm) || chart.type.toLowerCase().includes(searchTerm);
+    });
+    renderChartList(filteredData);
+  });
+  // 显示弹窗
+  addChartBtn.addEventListener('click', function () {
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  });
+  // 隐藏弹窗
+  function hideModal() {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+    selectedChartId = null;
+    // 清除选中状态
+    document.querySelectorAll('#chart-list-body tr').forEach(function (r) {
+      r.classList.remove('bg-primary-light');
+    });
+  }
+  cancelBtn.addEventListener('click', hideModal);
+  // 点击弹窗外部关闭
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) {
+      hideModal();
+    }
+  });
+  // 确认添加图表
+  confirmBtn.addEventListener('click', function () {
+    if (selectedChartId) {
+      var selectedChart = chartData.find(function (chart) {
+        return chart.id === selectedChartId;
+      });
+      if (selectedChart) {
+        addChartToDashboard(selectedChart);
+        hideModal();
+      }
+    }
+  });
+  // 添加图表到看板
+  function addChartToDashboard(chart) {
+    var dashboardContainer = document.getElementById('dashboard-container');
+    var chartItem = document.createElement('div');
+    chartItem.className = 'chart-item bg-gray-50 p-4 rounded-lg border border-gray-200 relative';
+    chartItem.draggable = true;
+    chartItem.dataset.type = chart.type;
+    chartItem.innerHTML = "<div class=\"flex justify-between items-start mb-4\">\n            <h3 class=\"font-medium text-gray-800\">".concat(chart.name, "</h3>\n            <div class=\"flex space-x-2\">\n              <button class=\"chart-fullscreen-btn text-gray-500 hover:text-primary transition-colors\" title=\"全屏\">\n                <i class=\"fas fa-expand\"></i>\n              </button>\n              <button class=\"chart-delete-btn text-gray-500 hover:text-danger transition-colors\" title=\"删除\">\n                <i class=\"fas fa-trash\"></i>\n              </button>\n            </div>\n          </div>\n          <div class=\"chart-container w-full h-64 bg-white p-4 rounded shadow-sm\"></div>");
+    dashboardContainer.appendChild(chartItem);
+    // 初始化图表
+    initChart(chartItem.querySelector('.chart-container'), chart);
+  }
+  // 初始化图表
+  function initChart(container, chart) {
+    // 这里使用echarts初始化图表
+    var myChart = echarts.init(container);
+    // 根据图表类型设置不同的option
+    var option = {};
+    switch (chart.type) {
+      case '折线图':
+        option = {
+          xAxis: {
+            type: 'category',
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+          },
+          yAxis: {
+            type: 'value'
+          },
+          series: [{
+            data: [150, 230, 224, 218, 135, 147, 260],
+            type: 'line'
+          }]
+        };
+        break;
+      case '饼图':
+        option = {
+          series: [{
+            type: 'pie',
+            data: [{
+              value: 335,
+              name: '华北'
+            }, {
+              value: 310,
+              name: '华东'
+            }, {
+              value: 234,
+              name: '华南'
+            }, {
+              value: 135,
+              name: '西北'
+            }, {
+              value: 1548,
+              name: '其他'
+            }]
+          }]
+        };
+        break;
+      case '柱状图':
+        option = {
+          xAxis: {
+            type: 'category',
+            data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+          },
+          yAxis: {
+            type: 'value'
+          },
+          series: [{
+            data: [120, 200, 150, 80, 70, 110],
+            type: 'bar'
+          }]
+        };
+        break;
+      case '指标图':
+        option = {
+          series: [{
+            type: 'gauge',
+            value: 75,
+            title: {
+              text: '完成率'
+            },
+            detail: {
+              formatter: '{value}%'
+            }
+          }]
+        };
+        break;
+    }
+    myChart.setOption(option);
+    // 监听窗口大小变化，调整图表大小
+    window.addEventListener('resize', function () {
+      myChart.resize();
+    });
+  }
+});</script> 
+  <!-- [/JSMOD] a2d_图表列表弹窗 -- 实现新增图表时的图表选择列表弹窗功能，支持搜索和选择图表 --> 
+  <!-- [JSMOD] 78a_工作台页面:我的应用功能 --> 
+  <script id="my-applications-script">document.addEventListener('DOMContentLoaded', function () {
+  // 应用数据
+  var myApplications = [{
+    id: 'APP001',
+    name: '数据分析平台',
+    description: '实时数据监控与分析工具',
+    type: '内部',
+    logo: 'https://design.gemcoder.com/staticResource/echoAiSystemImages/775c8c8a6bbe4c524280e4fcfc3c4bde.png'
+  }, {
+    id: 'APP002',
+    name: '项目管理系统',
+    description: '团队协作与任务跟踪平台',
+    type: '内部',
+    logo: 'https://design.gemcoder.com/staticResource/echoAiSystemImages/a82092b52636b6e1335b8b8e5d4f8368.png'
+  }, {
+    id: 'APP003',
+    name: '客户关系管理',
+    description: '客户信息管理与跟进系统',
+    type: '外部',
+    logo: 'https://design.gemcoder.com/staticResource/echoAiSystemImages/68e3a7a9874c4724b4b648edcb9939a8.png'
+  }, {
+    id: 'APP004',
+    name: '人力资源管理',
+    description: '员工信息与考勤管理系统',
+    type: '内部',
+    logo: 'https://design.gemcoder.com/staticResource/echoAiSystemImages/e0bf2fe8f4b91e79613b8b5de303f90e.png'
+  }, {
+    id: 'APP005',
+    name: '财务管理平台',
+    description: '财务数据统计与报表系统',
+    type: '外部',
+    logo: 'https://design.gemcoder.com/staticResource/echoAiSystemImages/4271df4af1b387ac39c8dcab279d74c0.png'
+  }];
+  // 可添加的应用数据
+  var availableApplications = [{
+    id: 'APP006',
+    name: '文档协作工具',
+    description: '多人实时协作编辑文档',
+    type: '内部',
+    logo: 'https://design.gemcoder.com/staticResource/echoAiSystemImages/9f0ac91a34a09b91db7893188b941aba.png'
+  }, {
+    id: 'APP007',
+    name: '会议管理系统',
+    description: '会议室预订与会议记录工具',
+    type: '内部',
+    logo: 'https://design.gemcoder.com/staticResource/echoAiSystemImages/7c5110ddf2810bd760096a6e0f2e85b5.png'
+  }, {
+    id: 'APP008',
+    name: '供应链管理',
+    description: '库存与物流跟踪系统',
+    type: '外部',
+    logo: 'https://design.gemcoder.com/staticResource/echoAiSystemImages/5b6d97b93c541c92e5d1b25746b62fe8.png'
+  }, {
+    id: 'APP009',
+    name: '营销自动化',
+    description: '营销活动管理与分析平台',
+    type: '外部',
+    logo: 'https://design.gemcoder.com/staticResource/echoAiSystemImages/1ab4c366f68f65090019dfabb269845c.png'
+  }, {
+    id: 'APP010',
+    name: '知识管理系统',
+    description: '企业知识库与文档管理',
+    type: '内部',
+    logo: 'https://design.gemcoder.com/staticResource/echoAiSystemImages/bbbb3de4854ac6ba677d188afdc47993.png'
+  }];
+  // DOM元素
+  var applicationsContainer = document.getElementById('applications-container');
+  var availableAppsContainer = document.getElementById('available-apps-container');
+  var addApplicationBtn = document.getElementById('add-application-btn');
+  var appSelectionModal = document.getElementById('app-selection-modal');
+  var closeModalBtn = document.getElementById('close-modal-btn');
+  var cancelSelectionBtn = document.getElementById('cancel-selection-btn');
+  var searchApplications = document.getElementById('search-applications');
+  var searchAvailableApps = document.getElementById('search-available-apps');
+  // 渲染我的应用列表
+  function renderApplications() {
+    var apps = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : myApplications;
+    applicationsContainer.innerHTML = '';
+    if (apps.length === 0) {
+      applicationsContainer.innerHTML = "<div class=\"col-span-full text-center py-12\">\n              <i class=\"fas fa-search text-4xl text-gray-200 mb-4\"></i>\n              <p class=\"text-gray-500\">未找到匹配的应用</p>\n            </div>";
+      return;
+    }
+    apps.forEach(function (app) {
+      var appCard = document.createElement('div');
+      appCard.className = 'bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col';
+      appCard.innerHTML = "<div class=\"relative h-40\">\n              <img src=\"".concat(app.logo, "\" alt=\"").concat(app.name, "logo\" class=\"w-full h-full object-cover\">\n              <button class=\"absolute top-2 right-2 bg-white/80 hover:bg-white text-danger p-1 rounded-full transition-colors duration-200 delete-app-btn\" data-id=\"").concat(app.id, "\">\n                <i class=\"fas fa-trash-alt\"></i>\n              </button>\n            </div>\n            <div class=\"p-4 flex-grow flex flex-col\">\n              <div class=\"flex justify-between items-start mb-2\">\n                <h3 class=\"font-medium text-gray-900\">").concat(app.name, "</h3>\n                <span class=\"text-xs px-2 py-1 rounded-full").concat(app.type === '内部' ? "bg-green-100 text-green-800" : "bg-blue-100 text-blue-800", "\">").concat(app.type, "</span>\n              </div>\n              <p class=\"text-sm text-gray-500 mb-3 flex-grow\">").concat(app.description, "</p>\n              <div class=\"text-xs text-gray-400\">ID:").concat(app.id, "</div>\n            </div>");
+      applicationsContainer.appendChild(appCard);
+    });
+    // 添加删除按钮事件监听
+    document.querySelectorAll('.delete-app-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var appId = this.getAttribute('data-id');
+        var appIndex = myApplications.findIndex(function (app) {
+          return app.id === appId;
+        });
+        if (appIndex !== -1) {
+          myApplications.splice(appIndex, 1);
+          renderApplications();
+        }
+      });
+    });
+  }
+  // 渲染可添加的应用列表
+  function renderAvailableApplications() {
+    var apps = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : availableApplications;
+    availableAppsContainer.innerHTML = '';
+    if (apps.length === 0) {
+      availableAppsContainer.innerHTML = "<div class=\"col-span-full text-center py-12\">\n              <i class=\"fas fa-search text-4xl text-gray-200 mb-4\"></i>\n              <p class=\"text-gray-500\">未找到匹配的应用</p>\n            </div>";
+      return;
+    }
+    apps.forEach(function (app) {
+      var appCard = document.createElement('div');
+      appCard.className = 'border border-gray-200 rounded-lg p-4 hover:border-primary cursor-pointer transition-colors duration-200 add-available-app-btn';
+      appCard.setAttribute('data-id', app.id);
+      appCard.innerHTML = "<div class=\"flex items-start\">\n              <div class=\"w-12 h-12 rounded-md overflow-hidden flex-shrink-0 mr-3\">\n                <img src=\"".concat(app.logo, "\" alt=\"").concat(app.name, "logo\" class=\"w-full h-full object-cover\">\n              </div>\n              <div>\n                <div class=\"flex justify-between items-start\">\n                  <h3 class=\"font-medium text-gray-900 text-sm\">").concat(app.name, "</h3>\n                  <span class=\"text-xs px-2 py-1 rounded-full").concat(app.type === '内部' ? "bg-green-100 text-green-\n800" : "bg-blue-100 text-blue-800", "\">").concat(app.type, "</span>\n                </div>\n                <p class=\"text-xs text-gray-500 mt-1\">").concat(app.description, "</p>\n                <div class=\"text-xs text-gray-400 mt-1\">ID:").concat(app.id, "</div>\n              </div>\n            </div>");
+      availableAppsContainer.appendChild(appCard);
+    });
+    // 添加应用按钮事件监听
+    document.querySelectorAll('.add-available-app-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var appId = this.getAttribute('data-id');
+        var appToAdd = availableApplications.find(function (app) {
+          return app.id === appId;
+        });
+        if (appToAdd && !myApplications.some(function (app) {
+          return app.id === appId;
+        })) {
+          myApplications.push(appToAdd);
+          renderApplications();
+          // 从可用应用中移除已添加的应用
+          var indexToRemove = availableApplications.findIndex(function (app) {
+            return app.id === appId;
+          });
+          if (indexToRemove !== -1) {
+            availableApplications.splice(indexToRemove, 1);
+          }
+          closeModal();
+        }
+      });
+    });
+  }
+  // 打开模态框
+  function openModal() {
+    appSelectionModal.classList.remove('hidden');
+    renderAvailableApplications();
+  }
+  // 关闭模态框
+  function closeModal() {
+    appSelectionModal.classList.add('hidden');
+  }
+  // 搜索我的应用
+  function handleSearchApplications(e) {
+    var searchTerm = e.target.value.toLowerCase().trim();
+    var filteredApps = myApplications.filter(function (app) {
+      return app.name.toLowerCase().includes(searchTerm) || app.description.toLowerCase().includes(searchTerm) || app.id.toLowerCase().includes(searchTerm) || app.type.toLowerCase().includes(searchTerm);
+    });
+    renderApplications(filteredApps);
+  }
+  // 搜索可用应用
+  function handleSearchAvailableApps(e) {
+    var searchTerm = e.target.value.toLowerCase().trim();
+    var filteredApps = availableApplications.filter(function (app) {
+      return app.name.toLowerCase().includes(searchTerm) || app.description.toLowerCase().includes(searchTerm) || app.id.toLowerCase().includes(searchTerm) || app.type.toLowerCase().includes(searchTerm);
+    });
+    renderAvailableApplications(filteredApps);
+  }
+  // 事件监听
+  addApplicationBtn.addEventListener('click', openModal);
+  closeModalBtn.addEventListener('click', closeModal);
+  cancelSelectionBtn.addEventListener('click', closeModal);
+  searchApplications.addEventListener('input', handleSearchApplications);
+  searchAvailableApps.addEventListener('input', handleSearchAvailableApps);
+  // 点击模态框外部关闭
+  appSelectionModal.addEventListener('click', function (e) {
+    if (e.target === appSelectionModal) {
+      closeModal();
+    }
+  });
+  // 初始渲染
+  renderApplications();
+});</script> 
+  <!-- [/JSMOD] 78a_工作台页面:我的应用功能 -- 实现应用列表展示、新增、删除和搜索功能，包括应用数据管理、DOM渲染和事件处理 --> 
+  <!-- [JSMOD] 89c_工作台页面:我的发起功能 --> 
+  <script id="my-initiatives-script">document.addEventListener('DOMContentLoaded', function () {
+  // 流程数据
+  var initiatives = [{
+    id: 'PROC001',
+    title: '新产品开发项目审批',
+    source: '研发部',
+    startTime: '2023-11-15 09:30:00',
+    status: 'in-progress',
+    currentNode: '技术评审',
+    assignee: '张三'
+  }, {
+    id: 'PROC002',
+    title: '季度预算调整申请',
+    source: '财务部',
+    startTime: '2023-11-14 14:20:00',
+    status: 'in-progress',
+    currentNode: '财务审核',
+    assignee: '李四'
+  }, {
+    id: 'PROC003',
+    title: '市场推广活动方案',
+    source: '市场部',
+    startTime: '2023-11-13 10:15:00',
+    status: 'completed',
+    currentNode: '总经理审批',
+    assignee: '王五'
+  }, {
+    id: 'PROC004',
+    title: '部门人员招聘计划',
+    source: '人力资源部',
+    startTime: '2023-11-12 16:45:00',
+    status: 'rejected',
+    currentNode: 'HR审核',
+    assignee: '赵六'
+  }, {
+    id: 'PROC005',
+    title: '办公设备采购申请',
+    source: '行政部',
+    startTime: '2023-11-11 09:10:00',
+    status: 'in-progress',
+    currentNode: '行政审批',
+    assignee: '钱七'
+  }, {
+    id: 'PROC006',
+    title: '员工培训计划',
+    source: '培训部',
+    startTime: '2023-11-10 11:30:00',
+    status: 'completed',
+    currentNode: '培训部审核',
+    assignee: '孙八'
+  }, {
+    id: 'PROC007',
+    title: '销售渠道拓展方案',
+    source: '销售部',
+    startTime: '2023-11-09 15:45:00',
+    status: 'rejected',
+    currentNode: '销售总监审批',
+    assignee: '周九'
+  }, {
+    id: 'PROC008',
+    title: '客户合作协议签署',
+    source: '法务部',
+    startTime: '2023-11-08 13:20:00',
+    status: 'completed',
+    currentNode: '法务审核',
+    assignee: '吴十'
+  }, {
+    id: 'PROC009',
+    title: '服务器升级申请',
+    source: 'IT部',
+    startTime: '2023-11-07 10:00:00',
+    status: 'in-progress',
+    currentNode: 'IT审核',
+    assignee: '郑十一'
+  }, {
+    id: 'PROC010',
+    title: '年度工作总结报告',
+    source: '各部门',
+    startTime: '2023-11-06 16:30:00',
+    status: 'completed',
+    currentNode: '部门经理审批',
+    assignee: '王十二'
+  }, {
+    id: 'PROC011',
+    title: '新员工入职流程',
+    source: '人力资源部',
+    startTime: '2023-11-05 09:45:00',
+    status: 'rejected',
+    currentNode: '部门审核',
+    assignee: '冯十三'
+  }, {
+    id: 'PROC012',
+    title: '公司年会策划方案',
+    source: '行政部',
+    startTime: '2023-11-04 14:00:00',
+    status: 'in-progress',
+    currentNode: '行政部审核',
+    assignee: '陈十四'
+  }];
+  // DOM元素
+  var initiativeList = document.getElementById('initiative-list');
+  var inProgressCountElem = document.getElementById('in-progress-count');
+  var titleSearchInput = document.getElementById('initiative-title-search');
+  var sourceSearchInput = document.getElementById('initiative-source-search');
+  var startDateInput = document.getElementById('initiative-start-date');
+  var endDateInput = document.getElementById('initiative-end-date');
+  var statusFilterSelect = document.getElementById('initiative-status-filter');
+  var resetFilterBtn = document.getElementById('reset-initiative-filter');
+  var applyFilterBtn = document.getElementById('apply-initiative-filter');
+  // 渲染流程列表
+  function renderInitiatives() {
+    var filteredInitiatives = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initiatives;
+    initiativeList.innerHTML = '';
+    if (filteredInitiatives.length === 0) {
+      var emptyRow = document.createElement('tr');
+      emptyRow.innerHTML = '<td colspan="8" class="px-4 py-8 text-center text-gray-500"><i class="fas fa-file-alt mb-2 text-2xl"></i><p>没有找到匹配的流程</p></td>';
+      initiativeList.appendChild(emptyRow);
+      return;
+    }
+    filteredInitiatives.forEach(function (initiative) {
+      var row = document.createElement('tr');
+      row.className = 'hover:bg-gray-50 transition-colors duration-150';
+      // 状态样式
+      var statusClass = '';
+      var statusText = '';
+      switch (initiative.status) {
+        case 'in-progress':
+          statusClass = 'bg-blue-100 text-blue-800';
+          statusText = '进行中';
+          break;
+        case 'completed':
+          statusClass = 'bg-green-100 text-green-800';
+          statusText = '已完成';
+          break;
+        case 'rejected':
+          statusClass = 'bg-red-100 text-red-800';
+          statusText = '已驳回';
+          break;
+      }
+      row.innerHTML = "<td class=\"px-4 py-3 whitespace-nowrap text-sm text-gray-900\">".concat(initiative.id, "</td>\n        <td class=\"px-4 py-3 whitespace-nowrap\">\n          <div class=\"text-sm font-medium text-gray-900\">").concat(initiative.title, "</div>\n        </td>\n        <td class=\"px-4 py-3 whitespace-nowrap text-sm text-gray-500\">").concat(initiative.source, "</td>\n        <td class=\"px-4 py-3 whitespace-nowrap text-sm text-gray-500\">").concat(initiative.startTime, "</td>\n        <td class=\"px-4 py-3 whitespace-nowrap\">\n          <span class=\"px-2 py-1 text-xs rounded-full").concat(statusClass, "\">").concat(statusText, "</span>\n        </td>\n        <td class=\"px-4 py-3 whitespace-nowrap text-sm text-gray-500\">").concat(initiative.currentNode, "</td>\n        <td class=\"px-4 py-3 whitespace-nowrap text-sm text-gray-500\">").concat(initiative.assignee, "</td>\n        <td class=\"px-4 py-3 whitespace-nowrap text-sm\">\n          <button class=\"text-primary hover:text-primary-dark mr-3 view-initiative-btn\" data-id=\"").concat(initiative.id, "\">查看</button>").concat(initiative.status === 'rejected' ? "<button class=\"text-warning hover:text-warning-dark handle-rejected-btn\" data-id=\"".concat(initiative.id, "\">处理</button>") : '', "</td>");
+      initiativeList.appendChild(row);
+    });
+    // 更新进行中流程数量
+    updateInProgressCount();
+    // 添加事件监听
+    document.querySelectorAll('.view-initiative-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var initiativeId = this.getAttribute('data-id');
+        viewInitiativeDetails(initiativeId);
+      });
+    });
+    document.querySelectorAll('.handle-rejected-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var initiativeId = this.getAttribute('data-id');
+        handleRejectedInitiative(initiativeId);
+      });
+    });
+  }
+  // 更新进行中流程数量
+  function updateInProgressCount() {
+    var inProgressCount = initiatives.filter(function (initiative) {
+      return initiative.status === 'in-progress';
+    }).length;
+    inProgressCountElem.textContent = inProgressCount;
+    inProgressCountElem.classList.toggle('hidden', inProgressCount === 0);
+  }
+  // 查看流程详情
+  function viewInitiativeDetails(initiativeId) {
+    var initiative = initiatives.find(function (initiative) {
+      return initiative.id === initiativeId;
+    });
+    if (initiative) {
+      alert("\u6D41\u7A0B\u8BE6\u60C5:\nID:".concat(initiative.id, "\u6807\u9898:").concat(initiative.title, "\u53D1\u8D77\u6765\u6E90:").concat(initiative.source, "\u53D1\u8D77\u65F6\u95F4:").concat(initiative.startTime, "\u72B6\u6001:").concat(getStatusText(initiative.status), "\u5F53\u524D\u8282\u70B9:").concat(initiative.currentNode, "\u5F53\u524D\u5904\u7406\u4EBA:").concat(initiative.assignee));
+    }
+  }
+  // 处理已驳回流程
+  function handleRejectedInitiative(initiativeId) {
+    var initiative = initiatives.find(function (initiative) {
+      return initiative.id === initiativeId;
+    });
+    if (initiative) {
+      var action = confirm("\u6D41\u7A0B\"".concat(initiative.title, "\"\u5DF2\u88AB\u9A73\u56DE\uFF0C\u662F\u5426\u91CD\u65B0\u63D0\u4EA4\uFF1F\n\u5F53\u524D\u8282\u70B9:").concat(initiative.currentNode, "\u5904\u7406\u4EBA:").concat(initiative.assignee));
+      if (action) {
+        // 将状态改为进行中
+        initiative.status = 'in-progress';
+        renderInitiatives();
+        alert('流程已重新提交！');
+      }
+    }
+  }
+  // 获取状态文本
+  function getStatusText(status) {
+    switch (status) {
+      case 'in-progress':
+        return '进行中';
+      case 'completed':
+        return '已完成';
+      case 'rejected':
+        return '已驳回';
+      default:
+        return '未知';
+    }
+  }
+  // 应用筛选
+  function applyFilter() {
+    var title = titleSearchInput.value.toLowerCase().trim();
+    var source = sourceSearchInput.value.toLowerCase().trim();
+    var startDate = startDateInput.value;
+    var endDate = endDateInput.value;
+    var status = statusFilterSelect.value;
+    var filteredInitiatives = initiatives.filter(function (initiative) {
+      // 标题筛选
+      var titleMatch = title === '' || initiative.title.toLowerCase().includes(title);
+      // 发起来源筛选
+      var sourceMatch = source === '' || initiative.source.toLowerCase().includes(source);
+      // 日期筛选
+      var initiativeDate = new Date(initiative.startTime.split("")[0]);
+      var startDateMatch = !startDate || initiativeDate >= new Date(startDate);
+      var endDateMatch = !endDate || initiativeDate <= new Date(endDate);
+      // 状态筛选
+      var statusMatch = status === 'all' || initiative.status === status;
+      return titleMatch && sourceMatch && startDateMatch && endDateMatch && statusMatch;
+    });
+    renderInitiatives(filteredInitiatives);
+  }
+  // 重置筛选
+  function resetFilter() {
+    titleSearchInput.value = '';
+    sourceSearchInput.value = '';
+    startDateInput.value = '';
+    endDateInput.value = '';
+    statusFilterSelect.value = 'all';
+    renderInitiatives();
+  }
+  // 事件监听
+  applyFilterBtn.addEventListener('click', applyFilter);
+  resetFilterBtn.addEventListener('click', resetFilter);
+  // 初始化
+  renderInitiatives();
+});</script> 
+  <!-- [/JSMOD] 89c_工作台页面:我的发起功能 -- 实现我的发起流程列表的渲染、筛选、查看详情和处理已驳回流程功能 --> 
+  <!-- [JSMOD] b3e_图表拖拽排序 --> 
+  <script id="chart-drag-drop-script">function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
+}
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+  return arr2;
+}
+document.addEventListener('DOMContentLoaded', function () {
+  var dashboardContainer = document.getElementById('dashboard-container');
+  if (dashboardContainer) {
+    // 确定拖拽元素的放置位置
+    var getDragAfterElement = function getDragAfterElement(container, y) {
+      var draggableElements = _toConsumableArray(container.querySelectorAll('.chart-item:not(.opacity-50)'));
+      return draggableElements.reduce(function (closest, child) {
+        var box = child.getBoundingClientRect();
+        var offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+          return {
+            offset: offset,
+            element: child
+          };
+        } else {
+          return closest;
+        }
+      }, {
+        offset: Number.NEGATIVE_INFINITY
+      }).element;
+    }; // 图表删除功能
+    var draggedItem = null;
+    // 监听看板容器中的拖拽事件委托
+    dashboardContainer.addEventListener('dragstart', function (e) {
+      if (e.target.classList.contains('chart-item')) {
+        draggedItem = e.target;
+        setTimeout(function () {
+          draggedItem.classList.add('opacity-50');
+        }, 0);
+      }
+    });
+    dashboardContainer.addEventListener('dragend', function (e) {
+      if (draggedItem) {
+        draggedItem.classList.remove('opacity-50');
+        draggedItem = null;
+      }
+    });
+    dashboardContainer.addEventListener('dragover', function (e) {
+      e.preventDefault();
+      if (draggedItem) {
+        var afterElement = getDragAfterElement(dashboardContainer, e.clientY);
+        var draggable = draggedItem;
+        if (afterElement == null) {
+          dashboardContainer.appendChild(draggable);
+        } else {
+          dashboardContainer.insertBefore(draggable, afterElement);
+        }
+      }
+    });
+    dashboardContainer.addEventListener('click', function (e) {
+      if (e.target.closest('.chart-delete-btn')) {
+        var chartItem = e.target.closest('.chart-item');
+        if (chartItem) {
+          chartItem.remove();
+        }
+      }
+    });
+  }
+});</script> 
+  <!-- [/JSMOD] b3e_图表拖拽排序 -- 实现图表项的拖拽排序功能和删除功能 --> 
+  <!-- [JSMOD] h8i_表单提交处理 --> 
+  <script id="form-submit-script">document.addEventListener('DOMContentLoaded', function () {
+  // 信息修改表单提交
+  var infoForm = document.getElementById('info-form');
+  infoForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    // 模拟表单提交成功
+    alert('信息修改成功！');
+  });
+  // 密码修改表单提交
+  var passwordForm = document.getElementById('password-form');
+  passwordForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var oldPassword = document.getElementById('old-password').value;
+    var newPassword = document.getElementById('new-password').value;
+    var confirmPassword = document.getElementById('confirm-password').value;
+    if (!oldPassword) {
+      alert('请输入原密码');
+      return;
+    }
+    if (!newPassword) {
+      alert('请输入新密码');
+      return;
+    }
+    if (newPassword !== confirmPassword) {
+      alert('两次输入的新密码不一致');
+      return;
+    }
+    // 模拟密码修改成功
+    alert('密码修改成功！');
+    passwordForm.reset();
+  });
+  // 登出按钮点击事件
+  var logoutButton = document.getElementById('logout-button');
+  logoutButton.addEventListener('click', function () {
+    if (confirm('确定要登出吗？')) {
+      alert('登出成功！');
+      // 这里可以添加实际的登出逻辑
+    }
+  });
+});</script> 
+  <!-- [/JSMOD] h8i_表单提交处理 -- 处理账号信息修改和密码修改表单的提交事件，以及登出按钮的点击事件 --> 
+  <!-- [JSMOD] c4f_图表全屏功能 --> 
+  <script id="chart-fullscreen-script">document.addEventListener('DOMContentLoaded', function () {
+  var dashboardContainer = document.getElementById('dashboard-container');
+  if (dashboardContainer) {
+    // 初始化全屏图表
+    var initFullscreenChart = function initFullscreenChart(container, type) {
+      var myChart = echarts.init(container);
+      var option = {};
+      // 根据图表类型设置不同的option
+      switch (type) {
+        case '折线图':
+          option = {
+            xAxis: {
+              type: 'category',
+              data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            },
+            yAxis: {
+              type: 'value'
+            },
+            series: [{
+              data: [150, 230, 224, 218, 135, 147, 260],
+              type: 'line'
+            }]
+          };
+          break;
+        case '饼图':
+          option = {
+            series: [{
+              type: 'pie',
+              data: [{
+                value: 335,
+                name: '华北'
+              }, {
+                value: 310,
+                name: '华东'
+              }, {
+                value: 234,
+                name: '华南'
+              }, {
+                value: 135,
+                name: '西北'
+              }, {
+                value: 1548,
+                name: '其他'
+              }]
+            }]
+          };
+          break;
+        case '柱状图':
+          option = {
+            xAxis: {
+              type: 'category',
+              data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+            },
+            yAxis: {
+              type: 'value'
+            },
+            series: [{
+              data: [120, 200, 150, 80, 70, 110],
+              type: 'bar'
+            }]
+          };
+          break;
+        case '指标图':
+          option = {
+            series: [{
+              type: 'gauge',
+              value: 75,
+              title: {
+                text: '完成率'
+              },
+              detail: {
+                formatter: '{value}%'
+              }
+            }]
+          };
+          break;
+        default:
+          option = {
+            xAxis: {
+              type: 'category',
+              data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            },
+            yAxis: {
+              type: 'value'
+            },
+            series: [{
+              data: [150, 230, 224, 218, 135, 147, 260],
+              type: 'line'
+            }]
+          };
+      }
+      myChart.setOption(option);
+      // 监听窗口大小变化
+      window.addEventListener('resize', function () {
+        myChart.resize();
+      });
+    };
+    // 创建全屏容器
+    var fullscreenContainer = document.createElement('div');
+    fullscreenContainer.id = 'chart-fullscreen-container';
+    fullscreenContainer.className = 'fixed inset-0 z-50 bg-white hidden flex-col';
+    fullscreenContainer.innerHTML = "<div class=\"flex justify-end p-4\">\n            <button id=\"exit-fullscreen-btn\" class=\"p-2 text-gray-500 hover:text-primary\">\n              <i class=\"fas fa-compress\"></i>\n            </button>\n          </div>\n          <div id=\"fullscreen-chart-content\" class=\"flex-1 p-6\"></div>";
+    document.body.appendChild(fullscreenContainer);
+    var exitFullscreenBtn = document.getElementById('exit-fullscreen-btn');
+    var fullscreenContent = document.getElementById('fullscreen-chart-content');
+    var originalChartContainer = null;
+    // 点击全屏按钮
+    dashboardContainer.addEventListener('click', function (e) {
+      if (e.target.closest('.chart-fullscreen-btn')) {
+        var chartItem = e.target.closest('.chart-item');
+        if (chartItem) {
+          originalChartContainer = chartItem;
+          var chartTitle = chartItem.querySelector('h3').textContent;
+          var chartType = chartItem.dataset.type || '折线图';
+          // 设置全屏内容
+          fullscreenContent.innerHTML = "<h2 class=\"text-xl font-semibold mb-6\">".concat(chartTitle, "</h2>\n                <div class=\"w-full h-full\" id=\"fullscreen-chart-container\"></div>");
+          // 显示全屏容器
+          fullscreenContainer.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+          // 初始化全屏图表
+          var newChartContainer = document.getElementById('fullscreen-chart-container');
+          initFullscreenChart(newChartContainer, chartType);
+        }
+      }
+    });
+    // 退出全屏
+    exitFullscreenBtn.addEventListener('click', function () {
+      fullscreenContainer.classList.add('hidden');
+      document.body.style.overflow = '';
+      originalChartContainer = null;
+    });
+  }
+});</script> 
+  <!-- [/JSMOD] c4f_图表全屏功能 -- 实现图表的全屏查看和退出全屏功能 --> 
+  <!-- [JSMOD] 7a3_消息选择功能 --> 
+  <script id="message-selection-script">document.addEventListener('DOMContentLoaded', function () {
+  // 全选复选框
+  var selectAllCheckbox = document.getElementById('select-all-messages');
+  // 所有消息行复选框
+  var messageList = document.getElementById('message-list');
+  // 单个复选框变化时更新全选状态
+  messageList.addEventListener('change', function (e) {
+    if (e.target.classList.contains('message-checkbox')) {
+      updateSelectAllStatus();
+    }
+  });
+  // 更新全选复选框状态
+  function updateSelectAllStatus() {
+    var checkboxes = messageList.querySelectorAll('.message-checkbox');
+    var checkedCount = messageList.querySelectorAll('.message-checkbox:checked').length;
+    var totalCount = checkboxes.length;
+    if (selectAllCheckbox) {
+      selectAllCheckbox.checked = checkedCount > 0 && checkedCount === totalCount;
+      selectAllCheckbox.indeterminate = checkedCount > 0 && checkedCount < totalCount;
+    }
+  }
+});</script> 
+  <!-- [/JSMOD] 7a3_消息选择功能 -- 实现全选复选框与行复选框的联动，以及选中消息标记为已读的功能 --> 
+  <!-- [JSMOD] 789_应用筛选功能 --> 
+  <script id="app-filter-script">document.addEventListener('DOMContentLoaded', function () {
+  // 获取筛选元素
+  var nameFilter = document.getElementById('app-name-filter');
+  var typeFilter = document.getElementById('app-type-filter');
+  var resetBtn = document.getElementById('reset-filter');
+  var appItems = document.querySelectorAll('.app-item');
+
+  // 筛选函数
+  function filterApps() {
+    var nameValue = nameFilter.value.toLowerCase().trim();
+    var typeValue = typeFilter.value;
+    appItems.forEach(function (item) {
+      var itemName = item.getAttribute('data-name').toLowerCase();
+      var itemType = item.getAttribute('data-type');
+      var nameMatch = itemName.includes(nameValue);
+      var typeMatch = typeValue === '' || itemType === typeValue;
+      if (nameMatch && typeMatch) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+  }
+
+  // 重置筛选
+  function resetFilter() {
+    nameFilter.value = '';
+    typeFilter.value = '';
+    filterApps();
+  }
+
+  // 添加事件监听
+  nameFilter.addEventListener('input', filterApps);
+  typeFilter.addEventListener('change', filterApps);
+  resetBtn.addEventListener('click', resetFilter);
+});</script> 
+  <!-- [/JSMOD] 789_应用筛选功能 -- 实现按名称和类型筛选应用的逻辑 -->  
+ </body>
+</html>

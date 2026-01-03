@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>物联数智化赋能平台 - 登录</title> 
+  <script src="../javascript/reload.js"></script> 
+  <script src="./2000008342541434880/resource_3266210000.js"></script> 
+  <link href="./2000008342541434880/all.min.css" rel="stylesheet"> 
+  <script>tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#165DFF',
+        secondary: '#36CFC9',
+        dark: '#1D2129',
+        'gray-light': '#F2F3F5',
+        'gray-medium': '#C9CDD4',
+        'gray-dark': '#86909C'
+      },
+      fontFamily: {
+        inter: ['Inter', 'system-ui', 'sans-serif']
+      },
+      boxShadow: {
+        'card': '0 10px 30px -5px rgba(0, 0, 0, 0.1)',
+        'input': '0 2px 5px rgba(0, 0, 0, 0.05)'
+      }
+    }
+  }
+};</script> 
+  <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .bg-gradient-primary {
+                background: linear-gradient(135deg, #165DFF 0%, #36CFC9 100%);
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            .transition-all-300 {
+                transition: all 0.3s ease;
+            }
+        }
+    </style> 
+ </head> 
+ <body class="font-inter bg-gray-50 min-h-screen flex items-center justify-center p-4"> 
+  <!-- [MODULE] abc_主内容区域 --> 
+  <div class="w-full max-w-6xl flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-card bg-white"> 
+   <!-- [MODULE] def_登录左侧区域 --> 
+   <div class="w-full md:w-1/2 bg-gradient-primary p-8 md:p-12 flex flex-col justify-center items-center text-white relative overflow-hidden"> 
+    <!-- 装饰背景元素 --> 
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden"> 
+     <div class="absolute -top-10 -left-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"> 
+     </div> 
+     <div class="absolute bottom-10 right-10 w-60 h-60 bg-white/10 rounded-full blur-3xl"> 
+     </div> 
+    </div> 
+    <!-- 平台Logo --> 
+    <div class="relative z-10 mb-10"> 
+     <h1 class="text-[clamp(1.8rem,5vw,2.5rem)] font-bold text-center text-shadow"> 物联数智化赋能平台 </h1> 
+    </div> 
+    <!-- 平台描述 --> 
+    <div class="relative z-10 text-center max-w-md"> 
+     <p class="text-lg md:text-xl mb-6 text-white/90"> 连接万物，智享未来。我们的平台为您提供全方位的物联网数据管理与智能分析解决方案。 </p> 
+     <p class="text-white/80"> 赋能企业数字化转型，实现设备互联、数据互通、智能决策。 </p> 
+    </div> 
+    <!-- 平台形象图 --> 
+    <div class="relative z-10 mt-12 w-full max-w-xs"> 
+    </div> 
+   </div> 
+   <!-- [/MODULE] def_登录左侧区域 -- 包含平台Logo、描述和形象图，采用蓝色渐变背景 --> 
+   <!-- [MODULE] ghi_登录右侧区域 --> 
+   <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center"> 
+    <!-- [MODULE] jkl_登录表单区域 --> 
+    <div class="max-w-md mx-auto w-full"> 
+     <div class="mb-8"> 
+      <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-gray-800 mb-2"> 欢迎登录 </h2> 
+      <p class="text-gray-dark"> 请输入您的账号和密码进行登录 </p> 
+     </div> 
+     <!-- 登录表单 --> 
+     <form id="loginForm" class="space-y-6"> 
+      <!-- 用户名输入框 --> 
+      <div class="space-y-2"> 
+       <label for="username" class="block text-sm font-medium text-gray-700"> 用户名 </label> 
+       <div class="relative"> 
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400"> 
+         <i class="fas fa-user"> </i> 
+        </div> 
+        <input type="text" id="username" name="username" required class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition-all-300 shadow-input" placeholder="请输入用户名"> 
+       </div> 
+      </div> 
+      <!-- 密码输入框 --> 
+      <div class="space-y-2"> 
+       <label for="password" class="block text-sm font-medium text-gray-700"> 密码 </label> 
+       <div class="relative"> 
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400"> 
+         <i class="fas fa-lock"> </i> 
+        </div> 
+        <input type="password" id="password" name="password" required class="w-full pl-10 pr-10 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary transition-all-300 shadow-input" placeholder="请输入密码"> 
+        <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 transition-all-300"> <i class="fas fa-eye-slash"> </i> </button> 
+       </div> 
+      </div> 
+      <a class="yt-a-defalut-link" target="_top" is-page="true" href="javascript:void(0);" custom-href="w=1920&amp;h=1080&amp;appuuid=2007032279200694272&amp;version=24&amp;pageType=web&amp;uuid=2006600210901368832&amp;appName=赋能平台（Pro）副本" onclick="ytCustomLinkNavigation()" custom-a="true" is-add="false" style="display: inline; padding: 0px; border: 0px; box-shadow: none;"> <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-4 rounded-lg transition-all-300 transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center yt-editor" value="button" data-selectorname="#id-0x62m" style> <span> 登录 </span> <i class="fas fa-arrow-right ml-2"> </i> </button> </a> 
+     </form> 
+     <!-- 登录状态提示 --> 
+     <div id="loginMessage" class="mt-4 hidden p-3 rounded-lg text-center"> 
+     </div> 
+    </div> 
+    <!-- [/MODULE] jkl_登录表单区域 -- 包含用户名输入框、密码输入框、显示/隐藏密码按钮和登录按钮 --> 
+    <!-- [MODULE] mno_登录底部区域 --> 
+    <div class="mt-auto pt-8 mt-12 border-t border-gray-200 text-center text-gray-dark text-sm"> 
+     <p> © 2023 物联数智化赋能平台 版权所有 </p> 
+     <p class="mt-1"> 技术支持：service@iotplatform.com </p> 
+    </div> 
+    <!-- [/MODULE] mno_登录底部区域 -- 包含版权信息和技术支持联系方式 --> 
+   </div> 
+   <!-- [/MODULE] ghi_登录右侧区域 -- 包含登录表单和底部版权信息 --> 
+  </div> 
+  <!-- [/MODULE] abc_主内容区域 -- 包含登录页面的所有内容 --> 
+  <!-- [JSMOD] pqr_登录功能模块 --> 
+  <script id="loginScript">document.addEventListener('DOMContentLoaded', function () {
+  // 获取DOM元素
+  var loginForm = document.getElementById('loginForm');
+  var usernameInput = document.getElementById('username');
+  var passwordInput = document.getElementById('password');
+  var togglePassword = document.getElementById('togglePassword');
+  var loginMessage = document.getElementById('loginMessage');
+
+  // 显示/隐藏密码功能
+  togglePassword.addEventListener('click', function () {
+    var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+
+    // 切换图标
+    var icon = togglePassword.querySelector('i');
+    if (type === 'password') {
+      icon.classList.remove('fa-eye');
+      icon.classList.add('fa-eye-slash');
+    } else {
+      icon.classList.remove('fa-eye-slash');
+      icon.classList.add('fa-eye');
+    }
+  });
+
+  // 表单提交处理
+  loginForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // 获取表单数据
+    var username = usernameInput.value.trim();
+    var password = passwordInput.value.trim();
+
+    // 简单表单验证
+    if (!username || !password) {
+      showMessage('请输入用户名和密码', 'error');
+      return;
+    }
+
+    // 模拟登录过程
+    showMessage('登录中...', 'info');
+
+    // 模拟API请求延迟
+    setTimeout(function () {
+      // 这里仅做演示，实际项目中应替换为真实的API请求
+      if (username === 'admin' && password === 'password') {
+        showMessage('登录成功，正在跳转...', 'success');
+        // 模拟跳转
+        setTimeout(function () {
+          window.location.href = 'javascript:void(0);';
+        }, 1500);
+      } else {
+        showMessage('用户名或密码错误，请重试', 'error');
+      }
+    }, 1500);
+  });
+
+  // 显示消息提示
+  function showMessage(text, type) {
+    loginMessage.textContent = text;
+    loginMessage.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800', 'bg-blue-100', 'text-blue-800');
+    switch (type) {
+      case 'success':
+        loginMessage.classList.add('bg-green-100', 'text-green-800');
+        break;
+      case 'error':
+        loginMessage.classList.add('bg-red-100', 'text-red-800');
+        break;
+      case 'info':
+        loginMessage.classList.add('bg-blue-100', 'text-blue-800');
+        break;
+    }
+  }
+
+  // 添加输入框聚焦效果
+  var inputs = [usernameInput, passwordInput];
+  inputs.forEach(function (input) {
+    input.addEventListener('focus', function () {
+      input.parentElement.classList.add('scale-[1.01]');
+      input.parentElement.style.transition = 'transform 0.2s ease';
+    });
+    input.addEventListener('blur', function () {
+      input.parentElement.classList.remove('scale-[1.01]');
+    });
+  });
+});</script> 
+  <!-- [/JSMOD] pqr_登录功能模块 -- 实现登录表单的交互逻辑，包括显示/隐藏密码、表单验证、登录状态提示和表单提交处理 -->  
+ </body>
+</html>
